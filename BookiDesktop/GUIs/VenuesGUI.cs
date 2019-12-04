@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookiDesktop.Controllers;
+using BookiDesktop.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +21,21 @@ namespace BookiDesktop {
         }
 
         private void label1_Click(object sender, EventArgs e) {
+
+        }
+
+        private async void button1_Click(object sender, EventArgs e) {
+            VenuesController vCtrl = new VenuesController();
+            await vCtrl.GetRequest();
+
+            foreach (Venue venue in vCtrl.VenueInfo) {
+                textBox1.Text = venue.ToString();
+            }
+
+           
+        }
+
+        private void VenuesGrid_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
         }
     }
