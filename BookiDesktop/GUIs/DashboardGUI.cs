@@ -13,6 +13,10 @@ namespace BookiDesktop {
 
         private static DashboardGUI instance = null;
 
+        public DashboardGUI() {
+            InitializeComponent();
+        }
+
         public static DashboardGUI Instance {
             get {
                 if (instance == null) {
@@ -20,10 +24,6 @@ namespace BookiDesktop {
                 }
                 return instance;
             }      
-        }
-
-        public DashboardGUI() {
-            InitializeComponent();
         }
 
         private void DashboardGUI_Load(object sender, EventArgs e) {

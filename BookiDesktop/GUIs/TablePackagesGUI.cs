@@ -14,6 +14,11 @@ namespace BookiDesktop {
 
         private static TablePackagesGUI instance = null;
 
+        public TablePackagesGUI() {
+            InitializeComponent();
+            AddDataToTable();
+        }
+
         public static TablePackagesGUI Instance {
             get {
                 if (instance == null) {
@@ -21,11 +26,6 @@ namespace BookiDesktop {
                 }
                 return instance;
             }
-        }
-
-        public TablePackagesGUI() {
-            InitializeComponent();
-            AddDataToTable();
         }
 
         public async void AddDataToTable() {

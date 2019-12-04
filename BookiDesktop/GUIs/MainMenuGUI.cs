@@ -16,15 +16,6 @@ namespace BookiDesktop {
 
         private static MainMenuGUI instance = null;
 
-        public static MainMenuGUI Instance {
-            get {
-                if (instance == null) {
-                    instance = new MainMenuGUI();
-                }
-                return instance;
-            }
-        }
-
         public MainMenuGUI() {
             InitializeComponent();
             DashboardGUI dashboardGUI = DashboardGUI.Instance;
@@ -33,6 +24,14 @@ namespace BookiDesktop {
             BtnDashboard.BackColor = Color.DarkGray;
         }
 
+        public static MainMenuGUI Instance {
+            get {
+                if (instance == null) {
+                    instance = new MainMenuGUI();
+                }
+                return instance;
+            }
+        }
 
         private void label1_Click(object sender, EventArgs e) {
 
@@ -56,6 +55,7 @@ namespace BookiDesktop {
             Nav(venuesGUI, content, "Venue");
             RecolorButtons();
             BtnVenues.BackColor = Color.DarkGray;
+            venuesGUI.AddDataToTable();
         }
 
         private void BtnTables_Click(object sender, EventArgs e) {
@@ -63,6 +63,7 @@ namespace BookiDesktop {
             Nav(tablesGUI, content, "Table");
             RecolorButtons();
             BtnTables.BackColor = Color.DarkGray;
+            tablesGUI.AddDataToTable();
         }
 
         private void BtnTablePackages_Click(object sender, EventArgs e) {
@@ -70,6 +71,7 @@ namespace BookiDesktop {
             Nav(tablePackagesGUI, content, "Table package");
             RecolorButtons();
             BtnTablePackages.BackColor = Color.DarkGray;
+            tablePackagesGUI.AddDataToTable();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
@@ -173,11 +175,6 @@ namespace BookiDesktop {
                 etpGUI.Show();
             }
         }
-
-        private void BtnCreateNew_Click(object sender, EventArgs e) {
-
-        }
-
 
     }
 }

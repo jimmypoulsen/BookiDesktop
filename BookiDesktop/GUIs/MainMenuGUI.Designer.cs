@@ -203,7 +203,6 @@
             this.BtnCreateNew.TabIndex = 0;
             this.BtnCreateNew.Text = "Create new";
             this.BtnCreateNew.UseVisualStyleBackColor = true;
-            this.BtnCreateNew.Click += new System.EventHandler(this.BtnCreateNew_Click);
             // 
             // lblNameOfFormOpen
             // 

@@ -16,6 +16,11 @@ namespace BookiDesktop {
 
         private static VenuesGUI instance = null;
 
+        public VenuesGUI() {
+            InitializeComponent();
+            AddDataToTable();
+            idFromTable = -1;
+        }
         public static VenuesGUI Instance {
             get {
                 if (instance == null) {
@@ -25,15 +30,14 @@ namespace BookiDesktop {
             }
         }
 
-        public VenuesGUI() {
-            InitializeComponent();
-            AddDataToTable();
-            idFromTable = -1;
-        }
-
         public async void AddDataToTable() {
             VenuesController vCtrl = new VenuesController();
             venuesGridView.DataSource = await vCtrl.Get();
+        }
+
+        public void RefreshDataGrid() {
+            venuesGridView.Update();
+            venuesGridView.Refresh();
         }
 
         private void venuesGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {

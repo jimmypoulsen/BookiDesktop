@@ -14,6 +14,11 @@ namespace BookiDesktop {
 
         private static TablesGUI instance = null;
 
+        public TablesGUI() {
+            InitializeComponent();
+            AddDataToTable();
+        }
+
         public static TablesGUI Instance {
             get {
                 if (instance == null) {
@@ -22,12 +27,8 @@ namespace BookiDesktop {
                 return instance;
             }
         }
-        public TablesGUI() {
-            InitializeComponent();
-            AddDataToTable();
-        }
 
-        private async void AddDataToTable() {
+        public async void AddDataToTable() {
             TablesController tCtrl = new TablesController();
             tablesGridView.DataSource = await tCtrl.Get();
         }
