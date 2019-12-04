@@ -14,29 +14,13 @@ namespace BookiDesktop {
     public partial class VenuesGUI : Form {
         public VenuesGUI() {
             InitializeComponent();
+            addDataToTable();
         }
 
-        private void Venues_Load(object sender, EventArgs e) {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private async void button1_Click(object sender, EventArgs e) {
+        public async void addDataToTable() {
             VenuesController vCtrl = new VenuesController();
-            await vCtrl.GetRequest();
-
-            foreach (Venue venue in vCtrl.VenueInfo) {
-                textBox1.Text = venue.ToString();
-            }
-
-           
+            venuesGridView.DataSource = await vCtrl.Get();
         }
 
-        private void VenuesGrid_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-        }
     }
 }

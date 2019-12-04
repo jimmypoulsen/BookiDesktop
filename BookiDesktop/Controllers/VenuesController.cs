@@ -10,15 +10,14 @@ using System.Threading.Tasks;
 
 namespace BookiDesktop.Controllers {
     public class VenuesController {
-        string BaseUrl = "https://localhost:44314/api/";
-        public List<Venue> VenueInfo { get; set; }
-
-        public async Task<IEnumerable<Venue>> GetRequest() {
-            //List<Venue> VenueInfo = new List<Venue>();
-            VenueInfo = new List<Venue>();
-
+        //string BaseUrl = "https://localhost:44314/api/";
+        private BaseController bCtrl;
+        public async Task<List<Venue>> Get() {
+            List<Venue> VenueInfo = new List<Venue>();
+            bCtrl = new BaseController();
             using (var client = new HttpClient()) {
-                client.BaseAddress = new Uri(BaseUrl);
+                // client.BaseAddress = new Uri(BaseUrl);
+                client.BaseAddress = new Uri(bCtrl.BaseUrl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

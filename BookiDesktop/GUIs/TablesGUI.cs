@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookiDesktop.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,13 @@ namespace BookiDesktop {
     public partial class TablesGUI : Form {
         public TablesGUI() {
             InitializeComponent();
+            addDataToTable();
+        }
+
+        private async void addDataToTable() {
+            TablesController tCtrl = new TablesController();
+            tablesGridView.DataSource = await tCtrl.Get();
         }
     }
-}
+
+    }
