@@ -1,0 +1,13 @@
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\bin\Debug\BookiDesktop.exe.config
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\bin\Debug\BookiDesktop.exe
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\bin\Debug\BookiDesktop.pdb
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.csprojAssemblyReference.cache
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Properties.Resources.resources
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.csproj.GenerateResource.cache
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.exe
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.pdb
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.TablePackagesGUI.resources
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.TablesGUI.resources
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.VenuesGUI.resources
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.MainMenuGUI.resources
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.DashboardGUI.resources
