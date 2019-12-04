@@ -11,12 +11,23 @@ using System.Windows.Forms;
 
 namespace BookiDesktop {
     public partial class TablesGUI : Form {
+
+        private static TablesGUI instance = null;
+
+        public static TablesGUI Instance {
+            get {
+                if (instance == null) {
+                    instance = new TablesGUI();
+                }
+                return instance;
+            }
+        }
         public TablesGUI() {
             InitializeComponent();
-            addDataToTable();
+            AddDataToTable();
         }
 
-        private async void addDataToTable() {
+        private async void AddDataToTable() {
             TablesController tCtrl = new TablesController();
             tablesGridView.DataSource = await tCtrl.Get();
         }

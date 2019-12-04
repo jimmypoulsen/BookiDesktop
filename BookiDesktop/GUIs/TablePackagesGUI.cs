@@ -11,12 +11,24 @@ using System.Windows.Forms;
 
 namespace BookiDesktop {
     public partial class TablePackagesGUI : Form {
-        public TablePackagesGUI() {
-            InitializeComponent();
-            addDataToTable();
+
+        private static TablePackagesGUI instance = null;
+
+        public static TablePackagesGUI Instance {
+            get {
+                if (instance == null) {
+                    instance = new TablePackagesGUI();
+                }
+                return instance;
+            }
         }
 
-        public async void addDataToTable() {
+        public TablePackagesGUI() {
+            InitializeComponent();
+            AddDataToTable();
+        }
+
+        public async void AddDataToTable() {
             TablePackagesController tpCtrl = new TablePackagesController();
             tablePackagesGridView.DataSource = await tpCtrl.Get();
         }

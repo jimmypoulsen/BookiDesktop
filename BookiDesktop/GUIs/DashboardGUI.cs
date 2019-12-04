@@ -10,6 +10,18 @@ using System.Windows.Forms;
 
 namespace BookiDesktop {
     public partial class DashboardGUI : Form {
+
+        private static DashboardGUI instance = null;
+
+        public static DashboardGUI Instance {
+            get {
+                if (instance == null) {
+                    instance = new DashboardGUI();
+                }
+                return instance;
+            }      
+        }
+
         public DashboardGUI() {
             InitializeComponent();
         }

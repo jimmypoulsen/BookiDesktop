@@ -34,7 +34,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.content = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.HeaderForContent = new System.Windows.Forms.Panel();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
@@ -44,7 +43,6 @@
             this.sidePanelNav.SuspendLayout();
             this.HeaderNavBar.SuspendLayout();
             this.content.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.HeaderForContent.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,7 +107,6 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "Log out";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // HeaderNavBar
             // 
@@ -160,22 +157,11 @@
             // content
             // 
             this.content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.content.Controls.Add(this.dataGridView1);
             this.content.Location = new System.Drawing.Point(143, 114);
             this.content.Name = "content";
             this.content.Size = new System.Drawing.Size(1205, 516);
             this.content.TabIndex = 6;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-1, -1);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1205, 516);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+
             // 
             // HeaderForContent
             // 
@@ -253,7 +239,6 @@
             this.HeaderNavBar.ResumeLayout(false);
             this.HeaderNavBar.PerformLayout();
             this.content.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.HeaderForContent.ResumeLayout(false);
             this.HeaderForContent.PerformLayout();
             this.ResumeLayout(false);
@@ -273,7 +258,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel content;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel HeaderForContent;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnEdit;

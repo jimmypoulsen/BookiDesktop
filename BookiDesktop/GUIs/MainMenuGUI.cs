@@ -13,11 +13,23 @@ namespace BookiDesktop {
     public partial class MainMenuGUI : Form {
 
         private string nameOfFormOpen;
+
+        private static MainMenuGUI instance = null;
+
+        public static MainMenuGUI Instance {
+            get {
+                if (instance == null) {
+                    instance = new MainMenuGUI();
+                }
+                return instance;
+            }
+        }
+
         public MainMenuGUI() {
             InitializeComponent();
-            DashboardGUI dashboardGUI = new DashboardGUI();
-            nav(dashboardGUI, content, "");
-            recolorButtons();
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
+            Nav(dashboardGUI, content, "");
+            RecolorButtons();
             BtnDashboard.BackColor = Color.DarkGray;
         }
 
@@ -31,30 +43,32 @@ namespace BookiDesktop {
         }
 
         private void BtnDashboard_Click(object sender, EventArgs e) {
-            DashboardGUI dashboardGUI = new DashboardGUI();
-            nav(dashboardGUI, content, "");
-            recolorButtons();
+            //DashboardGUI dashboardGUI = new DashboardGUI();
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
+            Nav(dashboardGUI, content, "");
+            RecolorButtons();
             BtnDashboard.BackColor = Color.DarkGray;
         }
 
         private void BtnVenues_Click(object sender, EventArgs e) {
-            VenuesGUI venueGUI = new VenuesGUI();
-            nav(venueGUI, content, "Venue");
-            recolorButtons();
+            //VenuesGUI venueGUI = new VenuesGUI();
+            VenuesGUI venuesGUI = VenuesGUI.Instance;
+            Nav(venuesGUI, content, "Venue");
+            RecolorButtons();
             BtnVenues.BackColor = Color.DarkGray;
         }
 
         private void BtnTables_Click(object sender, EventArgs e) {
-            TablesGUI tableGUI = new TablesGUI();
-            nav(tableGUI, content, "Table");
-            recolorButtons();
+            TablesGUI tablesGUI = TablesGUI.Instance;
+            Nav(tablesGUI, content, "Table");
+            RecolorButtons();
             BtnTables.BackColor = Color.DarkGray;
         }
 
         private void BtnTablePackages_Click(object sender, EventArgs e) {
-            TablePackagesGUI tablePackagesGUI = new TablePackagesGUI();
-            nav(tablePackagesGUI, content, "Table package");
-            recolorButtons();
+            TablePackagesGUI tablePackagesGUI = TablePackagesGUI.Instance;
+            Nav(tablePackagesGUI, content, "Table package");
+            RecolorButtons();
             BtnTablePackages.BackColor = Color.DarkGray;
         }
 
@@ -62,19 +76,19 @@ namespace BookiDesktop {
 
         }
 
-        public void hideButtons() {
+        public void HideButtons() {
             BtnCreateNew.Hide();
             BtnEdit.Hide();
             BtnDelete.Hide();
         }
 
-        public void showButtons() {
+        public void ShowButtons() {
             BtnCreateNew.Show();
             BtnEdit.Show();
             BtnDelete.Show();
         }
 
-        public void changeButtons(String title) {
+        public void ChangeButtons(String title) {
 
             string newTitle = null;
 
@@ -89,14 +103,14 @@ namespace BookiDesktop {
             BtnDelete.Text = "Delete " + newTitle;
         }
 
-        public void recolorButtons() {
+        public void RecolorButtons() {
             BtnDashboard.BackColor = Color.White;
             BtnVenues.BackColor = Color.White;
             BtnTables.BackColor = Color.White;
             BtnTablePackages.BackColor = Color.White;
         }
 
-        public void nav(Form form, Panel panel, String title) {
+        public void Nav(Form form, Panel panel, String title) {
             // changing view for content panel
             form.TopLevel = false;
             form.Size = panel.Size; // for responsive size
@@ -115,12 +129,12 @@ namespace BookiDesktop {
             }
             lblNameOfFormOpen.Text =  newTitle;
             
-            changeButtons(newTitle.ToLower());
+            ChangeButtons(newTitle.ToLower());
             if (nameOfFormOpen.Equals("DashboardGUI")) {
-                hideButtons();
+                HideButtons();
             }
             else {
-                showButtons();
+                ShowButtons();
             }
 
         }
@@ -156,19 +170,14 @@ namespace BookiDesktop {
             }
             else if (nameOfFormOpen.Equals("TablePackagesGUI")) {
                 EditTablePackagesGUI etpGUI = new EditTablePackagesGUI();
-                etpGUI.Show();            }
+                etpGUI.Show();
+            }
         }
 
         private void BtnCreateNew_Click(object sender, EventArgs e) {
 
         }
 
-        private void button5_Click(object sender, EventArgs e) {
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-        }
     }
 }
