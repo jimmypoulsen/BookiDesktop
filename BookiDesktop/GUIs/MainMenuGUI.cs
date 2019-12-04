@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookiDesktop.GUIs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,8 @@ using System.Windows.Forms;
 
 namespace BookiDesktop {
     public partial class MainMenuGUI : Form {
+
+        private string nameOfFormOpen;
         public MainMenuGUI() {
             InitializeComponent();
             DashboardGUI dashboardGUI = new DashboardGUI();
@@ -55,8 +58,25 @@ namespace BookiDesktop {
             panel.Controls.Clear();
             panel.Controls.Add(form);
             form.Show();
+            nameOfFormOpen = form.Name;
         }
 
-       
+        private void Edit_Click(object sender, EventArgs e) {
+            if (nameOfFormOpen.Equals("VenuesGUI")) {
+                lblNameOfFormOpen.Text = nameOfFormOpen;
+                EditVenuesGUI evGUI = new EditVenuesGUI();
+                evGUI.Show();
+            }
+            else if (nameOfFormOpen.Equals("TablesGUI")) {
+                lblNameOfFormOpen.Text = nameOfFormOpen;
+                EditTablesGUI etGUI = new EditTablesGUI();
+                etGUI.Show();
+            }
+            else if (nameOfFormOpen.Equals("TablePackagesGUI")) {
+                lblNameOfFormOpen.Text = nameOfFormOpen;
+                EditTablePackagesGUI etpGUI = new EditTablePackagesGUI();
+                etpGUI.Show();
+            }
+        }
     }
 }

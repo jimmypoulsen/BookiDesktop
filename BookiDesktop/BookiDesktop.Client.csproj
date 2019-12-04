@@ -65,6 +65,24 @@
     <Compile Include="GUIs\DashboardGUI.Designer.cs">
       <DependentUpon>DashboardGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIs\EditTablePackagesGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\EditTablePackagesGUI.Designer.cs">
+      <DependentUpon>EditTablePackagesGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\EditTablesGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\EditTablesGUI.Designer.cs">
+      <DependentUpon>EditTablesGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\EditVenuesGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\EditVenuesGUI.Designer.cs">
+      <DependentUpon>EditVenuesGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIs\MainMenuGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +114,15 @@
     </Compile>
     <EmbeddedResource Include="GUIs\DashboardGUI.resx">
       <DependentUpon>DashboardGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\EditTablePackagesGUI.resx">
+      <DependentUpon>EditTablePackagesGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\EditTablesGUI.resx">
+      <DependentUpon>EditTablesGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\EditVenuesGUI.resx">
+      <DependentUpon>EditVenuesGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\MainMenuGUI.resx">
       <DependentUpon>MainMenuGUI.cs</DependentUpon>
