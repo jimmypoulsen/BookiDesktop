@@ -30,19 +30,18 @@
             this.BtnDashboard = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.HeaderNavBar = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.content = new System.Windows.Forms.Panel();
             this.HeaderForContent = new System.Windows.Forms.Panel();
+            this.lblNameOfFormOpen = new System.Windows.Forms.Label();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnCreateNew = new System.Windows.Forms.Button();
-            this.lblNameOfFormOpen = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.sidePanelNav.SuspendLayout();
             this.HeaderNavBar.SuspendLayout();
-            this.content.SuspendLayout();
             this.HeaderForContent.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,18 +120,6 @@
             this.HeaderNavBar.Size = new System.Drawing.Size(1348, 69);
             this.HeaderNavBar.TabIndex = 5;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(14, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 28);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Booki - Administration";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(1067, -1);
@@ -154,6 +141,18 @@
             this.label1.Text = "Currently logged in as:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(14, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(228, 28);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Booki - Administration";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // content
             // 
             this.content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -161,7 +160,6 @@
             this.content.Name = "content";
             this.content.Size = new System.Drawing.Size(1205, 516);
             this.content.TabIndex = 6;
-
             // 
             // HeaderForContent
             // 
@@ -175,6 +173,16 @@
             this.HeaderForContent.Name = "HeaderForContent";
             this.HeaderForContent.Size = new System.Drawing.Size(1205, 45);
             this.HeaderForContent.TabIndex = 7;
+            // 
+            // lblNameOfFormOpen
+            // 
+            this.lblNameOfFormOpen.AutoSize = true;
+            this.lblNameOfFormOpen.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameOfFormOpen.Location = new System.Drawing.Point(3, 3);
+            this.lblNameOfFormOpen.Name = "lblNameOfFormOpen";
+            this.lblNameOfFormOpen.Size = new System.Drawing.Size(245, 32);
+            this.lblNameOfFormOpen.TabIndex = 8;
+            this.lblNameOfFormOpen.Text = "lblNameOfFormOpen";
             // 
             // BtnDelete
             // 
@@ -203,16 +211,7 @@
             this.BtnCreateNew.TabIndex = 0;
             this.BtnCreateNew.Text = "Create new";
             this.BtnCreateNew.UseVisualStyleBackColor = true;
-            // 
-            // lblNameOfFormOpen
-            // 
-            this.lblNameOfFormOpen.AutoSize = true;
-            this.lblNameOfFormOpen.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameOfFormOpen.Location = new System.Drawing.Point(3, 3);
-            this.lblNameOfFormOpen.Name = "lblNameOfFormOpen";
-            this.lblNameOfFormOpen.Size = new System.Drawing.Size(245, 32);
-            this.lblNameOfFormOpen.TabIndex = 8;
-            this.lblNameOfFormOpen.Text = "lblNameOfFormOpen";
+            this.BtnCreateNew.Click += new System.EventHandler(this.BtnCreateNew_Click);
             // 
             // panel3
             // 
@@ -237,7 +236,6 @@
             this.sidePanelNav.ResumeLayout(false);
             this.HeaderNavBar.ResumeLayout(false);
             this.HeaderNavBar.PerformLayout();
-            this.content.ResumeLayout(false);
             this.HeaderForContent.ResumeLayout(false);
             this.HeaderForContent.PerformLayout();
             this.ResumeLayout(false);

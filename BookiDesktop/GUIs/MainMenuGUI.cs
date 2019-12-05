@@ -13,7 +13,6 @@ namespace BookiDesktop {
     public partial class MainMenuGUI : Form {
 
         private string nameOfFormOpen;
-
         private static MainMenuGUI instance = null;
 
         public MainMenuGUI() {
@@ -159,11 +158,10 @@ namespace BookiDesktop {
         }
 
         private void Edit_Click(object sender, EventArgs e) {
-            if (nameOfFormOpen.Equals("VenuesGUI")) {
-                EditVenuesGUI evGUI = new EditVenuesGUI();
-                evGUI.Show();
-                /*MyObject obj = (MyObject)dataGridView.CurrentRow.DataBoundItem;
-                obj.MyProperty = newValue;*/
+            if (nameOfFormOpen.Equals("VenuesGUI") && VenuesGUI.Instance.idFromTable != -1) {
+                VenueGUI venueGUI = new VenueGUI();
+                venueGUI.Edit();
+                venueGUI.Show();
             }
             else if (nameOfFormOpen.Equals("TablesGUI")) {
                 EditTablesGUI etGUI = new EditTablesGUI();
@@ -174,7 +172,17 @@ namespace BookiDesktop {
                 EditTablePackagesGUI etpGUI = new EditTablePackagesGUI();
                 etpGUI.Show();
             }
+            else {
+                MessageBox.Show("Please select a venue from the list");
+            }
         }
 
+        private void BtnCreateNew_Click(object sender, EventArgs e) {
+            if (nameOfFormOpen.Equals("VenuesGUI")) {
+                VenueGUI venueGUI = new VenueGUI();
+                venueGUI.Create();
+                venueGUI.Show();
+            }
+        }
     }
 }
