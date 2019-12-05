@@ -32,7 +32,9 @@ namespace BookiDesktop {
 
         public async void AddDataToTable() {
             VenuesController vCtrl = new VenuesController();
+            venuesGridView.UseWaitCursor = true;
             venuesGridView.DataSource = await vCtrl.Get();
+            venuesGridView.UseWaitCursor = false;
         }
 
         public void RefreshDataGrid() {

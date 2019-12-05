@@ -1,4 +1,5 @@
-﻿using BookiDesktop.GUIs;
+﻿using BookiDesktop.Controllers;
+using BookiDesktop.GUIs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 using System.Windows.Forms;
 
 namespace BookiDesktop {
@@ -163,6 +165,9 @@ namespace BookiDesktop {
                 venueGUI.Edit();
                 venueGUI.Show();
             }
+
+            // change below to match above
+
             else if (nameOfFormOpen.Equals("TablesGUI")) {
                 EditTablesGUI etGUI = new EditTablesGUI();
                 etGUI.Show();
@@ -182,6 +187,25 @@ namespace BookiDesktop {
                 VenueGUI venueGUI = new VenueGUI();
                 venueGUI.Create();
                 venueGUI.Show();
+            }
+
+            // Implement same for tables and tablePackages
+        }
+
+        private async void BtnDelete_Click(object sender, EventArgs e) {
+            if (nameOfFormOpen.Equals("VenuesGUI") && VenuesGUI.Instance.idFromTable != -1) {
+                try {
+                    VenuesController vCtrl = new VenuesController();
+                    VenuesGUI.Instance.UseWaitCursor = true;
+                    await vCtrl.Delete(VenuesGUI.Instance.idFromTable);
+                    VenuesGUI.Instance.UseWaitCursor = false;
+                }
+                catch(Exception) {
+                    MessageBox.Show("Error...cannot delete Venue no: " + VenuesGUI.Instance.idFromTable + " because it has dependencies");
+                }
+            }
+            else {
+                MessageBox.Show("Please select a venue from the list");
             }
         }
     }

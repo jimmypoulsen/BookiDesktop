@@ -15,12 +15,9 @@ namespace BookiDesktop.Controllers {
         public async Task<List<TablePackage>> Get() {
             List<TablePackage> TablePackageInfo = new List<TablePackage>();
             bCtrl = new BaseController();
-            
-            using (var client = new HttpClient()) {
-                client.BaseAddress = new Uri(bCtrl.BaseUrl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+            using (var client = bCtrl.GetClient()) {
+              
                 HttpResponseMessage Res = await client.GetAsync("tablePackages");
 
                 if (Res.IsSuccessStatusCode) {

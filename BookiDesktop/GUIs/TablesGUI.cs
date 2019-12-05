@@ -30,7 +30,9 @@ namespace BookiDesktop {
 
         public async void AddDataToTable() {
             TablesController tCtrl = new TablesController();
+            tablesGridView.UseWaitCursor = true;
             tablesGridView.DataSource = await tCtrl.Get();
+            tablesGridView.UseWaitCursor = false;
         }
     }
 

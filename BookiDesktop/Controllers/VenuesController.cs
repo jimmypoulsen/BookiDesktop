@@ -3,23 +3,22 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace BookiDesktop.Controllers {
     public class VenuesController {
-        //string BaseUrl = "https://localhost:44314/api/";
+
         private BaseController bCtrl;
+        private VenuesGUI venuesGUI;
         public async Task<List<Venue>> Get() {
             List<Venue> VenueInfo = new List<Venue>();
             bCtrl = new BaseController();
-            using (var client = new HttpClient()) {
-                // client.BaseAddress = new Uri(BaseUrl);
-                client.BaseAddress = new Uri(bCtrl.BaseUrl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            using (var client = bCtrl.GetClient()) {
 
                 HttpResponseMessage Res = await client.GetAsync("venues");
 
@@ -36,12 +35,8 @@ namespace BookiDesktop.Controllers {
             List<Venue> VenueInfo = new List<Venue>();
             Venue venue = null;
             bCtrl = new BaseController();
-            using (var client = new HttpClient()) {
-                // client.BaseAddress = new Uri(BaseUrl);
-                client.BaseAddress = new Uri(bCtrl.BaseUrl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
+                using (var client = bCtrl.GetClient()) {
+             
                 HttpResponseMessage Res = await client.GetAsync("venues/" + id);
 
                 if (Res.IsSuccessStatusCode) {
@@ -55,25 +50,58 @@ namespace BookiDesktop.Controllers {
             return venue;
         }
 
-        /*public async Task<Venue> Get(int id) {
-            Venue venue = null;
+        public async Task<bool> Create(Venue venue) {
+            venuesGUI = VenuesGUI.Instance;
+            bool res = false;
+
             bCtrl = new BaseController();
-            using (var client = new HttpClient()) {
-                // client.BaseAddress = new Uri(BaseUrl);
-                client.BaseAddress = new Uri(bCtrl.BaseUrl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var root = new {
+                Venue = venue
+            };
+            var json = JsonConvert.SerializeObject(root);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage Res = await client.GetAsync("venues/" + id);
-
-                if (Res.IsSuccessStatusCode) {
-                    var VenueResponse = Res.Content.ReadAsStringAsync().Result;
-
-                    venue = JsonConvert.DeserializeObject<Venue> (VenueResponse);
-                }
+            using (var client = bCtrl.GetClient()) {
+                var response = await client.PostAsync(bCtrl.BaseUrl + "venues/", data);
+                string result = response.Content.ReadAsStringAsync().Result;
+                res = true;
             }
-            return venue;
-        }*/
+            venuesGUI.AddDataToTable();
+            return res;
+        }
+
+        public async Task<bool> Update(int id, Venue venue) {
+            venuesGUI = VenuesGUI.Instance;
+            bool res = false;
+            bCtrl = new BaseController();
+            var root = new {
+                Venue = venue
+            };
+            var json = JsonConvert.SerializeObject(root);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            using (var client = bCtrl.GetClient()) {
+                var response = await client.PutAsync(bCtrl.BaseUrl + "venues/" + id, data);
+                string result = response.Content.ReadAsStringAsync().Result;
+                res = true;
+            }
+            venuesGUI.AddDataToTable();
+            return res;
+        }
+
+        public async Task<bool> Delete(int id) {
+            venuesGUI = VenuesGUI.Instance;
+            bool res = false;
+            bCtrl = new BaseController();
+            using (var client = bCtrl.GetClient()) {
+                var response = await client.DeleteAsync(bCtrl.BaseUrl + "venues/" + id);
+                string result = response.Content.ReadAsStringAsync().Result;
+                res = true;
+                venuesGUI.AddDataToTable();
+                return res;
+            }
+
+        }
 
     }
 }
