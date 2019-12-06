@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookiDesktop.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,15 +24,19 @@ namespace BookiDesktop {
                     instance = new DashboardGUI();
                 }
                 return instance;
-            }      
+            }
         }
 
         private void DashboardGUI_Load(object sender, EventArgs e) {
 
         }
 
-        private void label1_Click(object sender, EventArgs e) {
-
+        private async void BtnFindVenues_Click(object sender, EventArgs e) {
+            EmployeesController eCtrl = new EmployeesController();
+            venuesGridView.UseWaitCursor = true;
+            venuesGridView.DataSource = await eCtrl.GetVenues(Int32.Parse(tbEmployeeNo.Text));
+            venuesGridView.UseWaitCursor = false;
         }
+
     }
 }

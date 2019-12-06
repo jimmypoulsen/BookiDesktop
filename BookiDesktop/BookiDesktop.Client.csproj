@@ -62,6 +62,7 @@
     <Compile Include="Controllers\TablePackagesController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\VenuesController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="GUIs\DashboardGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,7 @@
       <DependentUpon>MainMenuGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIs\Program.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\TablePackage.cs" />
     <Compile Include="Models\Venue.cs" />

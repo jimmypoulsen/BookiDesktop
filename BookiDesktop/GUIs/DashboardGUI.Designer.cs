@@ -23,48 +23,71 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tbEmployeeNo = new System.Windows.Forms.TextBox();
+            this.lblEmployeeNo = new System.Windows.Forms.Label();
+            this.BtnFindVenues = new System.Windows.Forms.Button();
+            this.venuesGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.venuesGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // tbEmployeeNo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Number of reservations today";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.tbEmployeeNo.Location = new System.Drawing.Point(289, 29);
+            this.tbEmployeeNo.Name = "tbEmployeeNo";
+            this.tbEmployeeNo.Size = new System.Drawing.Size(156, 22);
+            this.tbEmployeeNo.TabIndex = 2;
             // 
-            // label2
+            // lblEmployeeNo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(437, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "DashboardGUI";
+            this.lblEmployeeNo.AutoSize = true;
+            this.lblEmployeeNo.Location = new System.Drawing.Point(286, 9);
+            this.lblEmployeeNo.Name = "lblEmployeeNo";
+            this.lblEmployeeNo.Size = new System.Drawing.Size(159, 17);
+            this.lblEmployeeNo.TabIndex = 3;
+            this.lblEmployeeNo.Text = "Insert employeeNo here";
+            // 
+            // BtnFindVenues
+            // 
+            this.BtnFindVenues.Location = new System.Drawing.Point(451, 12);
+            this.BtnFindVenues.Name = "BtnFindVenues";
+            this.BtnFindVenues.Size = new System.Drawing.Size(156, 39);
+            this.BtnFindVenues.TabIndex = 4;
+            this.BtnFindVenues.Text = "Find venues";
+            this.BtnFindVenues.UseVisualStyleBackColor = true;
+            this.BtnFindVenues.Click += new System.EventHandler(this.BtnFindVenues_Click);
+            // 
+            // venuesGridView
+            // 
+            this.venuesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.venuesGridView.Location = new System.Drawing.Point(12, 57);
+            this.venuesGridView.Name = "venuesGridView";
+            this.venuesGridView.RowHeadersWidth = 51;
+            this.venuesGridView.Size = new System.Drawing.Size(779, 385);
+            this.venuesGridView.TabIndex = 6;
             // 
             // DashboardGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.venuesGridView);
+            this.Controls.Add(this.BtnFindVenues);
+            this.Controls.Add(this.lblEmployeeNo);
+            this.Controls.Add(this.tbEmployeeNo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardGUI";
             this.Text = "DashboardGUI";
             this.Load += new System.EventHandler(this.DashboardGUI_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.venuesGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbEmployeeNo;
+        private System.Windows.Forms.Label lblEmployeeNo;
+        private System.Windows.Forms.Button BtnFindVenues;
+        private System.Windows.Forms.DataGridView venuesGridView;
     }
 }

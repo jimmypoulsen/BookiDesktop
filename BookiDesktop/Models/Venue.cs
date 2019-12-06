@@ -15,7 +15,7 @@ namespace BookiDesktop.Models {
         public List<TablePackage> TablePackages { get; set; }
         public List<Table> Tables { get; set; }
         public override string ToString() {
-            return $"[{Id}] - {Address} {Zip} {City}";
+            return $"[{Id}] - {Name}, {Address}, {Zip}, {City}";
         }
 
     }

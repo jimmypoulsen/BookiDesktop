@@ -189,7 +189,7 @@ namespace BookiDesktop {
             }
         }
                                                                                 
-        private void BtnCreateNew_Click(object sender, EventArgs e) {
+        private async void BtnCreateNew_ClickAsync(object sender, EventArgs e) {
             if (nameOfFormOpen.Equals("VenuesGUI")) {
                 VenueGUI venueGUI = new VenueGUI();
                 venueGUI.Create();
@@ -197,7 +197,7 @@ namespace BookiDesktop {
             }
             else if (nameOfFormOpen.Equals("TablesGUI")) {
                 TableGUI tableGUI = new TableGUI();
-                tableGUI.Create();
+                await tableGUI.Create();
                 tableGUI.Show();
             }
 

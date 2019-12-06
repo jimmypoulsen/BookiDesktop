@@ -23,23 +23,15 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.tbVenueID = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblSeats = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbSeats = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblVenueId = new System.Windows.Forms.Label();
+            this.lblVenue = new System.Windows.Forms.Label();
             this.BtnSaveChanges = new System.Windows.Forms.Button();
-            this.lblBool = new System.Windows.Forms.Label();
+            this.cbVenueID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // tbVenueID
-            // 
-            this.tbVenueID.Location = new System.Drawing.Point(109, 213);
-            this.tbVenueID.Name = "tbVenueID";
-            this.tbVenueID.Size = new System.Drawing.Size(270, 22);
-            this.tbVenueID.TabIndex = 20;
             // 
             // lblName
             // 
@@ -83,18 +75,18 @@
             this.lblTitle.TabIndex = 11;
             this.lblTitle.Text = "Edit Table";
             // 
-            // lblVenueId
+            // lblVenue
             // 
-            this.lblVenueId.AutoSize = true;
-            this.lblVenueId.Location = new System.Drawing.Point(109, 193);
-            this.lblVenueId.Name = "lblVenueId";
-            this.lblVenueId.Size = new System.Drawing.Size(62, 17);
-            this.lblVenueId.TabIndex = 21;
-            this.lblVenueId.Text = "VenueID";
+            this.lblVenue.AutoSize = true;
+            this.lblVenue.Location = new System.Drawing.Point(109, 193);
+            this.lblVenue.Name = "lblVenue";
+            this.lblVenue.Size = new System.Drawing.Size(49, 17);
+            this.lblVenue.TabIndex = 21;
+            this.lblVenue.Text = "Venue";
             // 
             // BtnSaveChanges
             // 
-            this.BtnSaveChanges.Location = new System.Drawing.Point(110, 276);
+            this.BtnSaveChanges.Location = new System.Drawing.Point(110, 273);
             this.BtnSaveChanges.Name = "BtnSaveChanges";
             this.BtnSaveChanges.Size = new System.Drawing.Size(271, 38);
             this.BtnSaveChanges.TabIndex = 22;
@@ -102,24 +94,22 @@
             this.BtnSaveChanges.UseVisualStyleBackColor = true;
             this.BtnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
-            // lblBool
+            // cbVenueID
             // 
-            this.lblBool.AutoSize = true;
-            this.lblBool.Location = new System.Drawing.Point(317, 32);
-            this.lblBool.Name = "lblBool";
-            this.lblBool.Size = new System.Drawing.Size(46, 17);
-            this.lblBool.TabIndex = 23;
-            this.lblBool.Text = "label1";
+            this.cbVenueID.FormattingEnabled = true;
+            this.cbVenueID.Location = new System.Drawing.Point(109, 213);
+            this.cbVenueID.Name = "cbVenueID";
+            this.cbVenueID.Size = new System.Drawing.Size(271, 24);
+            this.cbVenueID.TabIndex = 24;
             // 
             // TableGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 358);
-            this.Controls.Add(this.lblBool);
+            this.Controls.Add(this.cbVenueID);
             this.Controls.Add(this.BtnSaveChanges);
-            this.Controls.Add(this.lblVenueId);
-            this.Controls.Add(this.tbVenueID);
+            this.Controls.Add(this.lblVenue);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblSeats);
             this.Controls.Add(this.tbName);
@@ -133,15 +123,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbVenueID;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblSeats;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbSeats;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblVenueId;
+        private System.Windows.Forms.Label lblVenue;
         private System.Windows.Forms.Button BtnSaveChanges;
-        private System.Windows.Forms.Label lblBool;
+        private System.Windows.Forms.ComboBox cbVenueID;
     }
 }
