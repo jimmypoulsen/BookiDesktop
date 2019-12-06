@@ -42,11 +42,11 @@
             // lblSelectedRow
             // 
             this.lblSelectedRow.AutoSize = true;
-            this.lblSelectedRow.Location = new System.Drawing.Point(253, 6);
+            this.lblSelectedRow.Location = new System.Drawing.Point(350, 9);
             this.lblSelectedRow.Name = "lblSelectedRow";
-            this.lblSelectedRow.Size = new System.Drawing.Size(88, 17);
+            this.lblSelectedRow.Size = new System.Drawing.Size(97, 17);
             this.lblSelectedRow.TabIndex = 5;
-            this.lblSelectedRow.Text = "selectedRow";
+            this.lblSelectedRow.Text = "Selected row: ";
             // 
             // VenuesGUI
             // 

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace BookiDesktop {
     public partial class TablePackagesGUI : Form {
-
+        public int idFromTable { get; set; }
         private static TablePackagesGUI instance = null;
 
         public TablePackagesGUI() {
@@ -35,5 +35,18 @@ namespace BookiDesktop {
             tablePackagesGridView.UseWaitCursor = false;
         }
 
+        private void tablePackagesGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+            {
+                if (tablePackagesGridView.SelectedCells.Count > 0) {
+
+                    int index = e.RowIndex;
+                    DataGridViewRow selectedRow = tablePackagesGridView.Rows[index];
+                    idFromTable = (int)selectedRow.Cells[0].Value;
+                    lblSelectedRow.Text = "Selected row: " + idFromTable;
+
+                }
+            }
+        }
     }
 }
+

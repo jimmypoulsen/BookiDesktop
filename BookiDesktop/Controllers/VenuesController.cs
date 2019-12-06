@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -77,6 +78,8 @@ namespace BookiDesktop.Controllers {
             var root = new {
                 Venue = venue
             };
+            Debug.WriteLine("id from vctrl: " + id);
+            Debug.WriteLine("venueid from vCtrl: " +  venue.Id);
             var json = JsonConvert.SerializeObject(root);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 

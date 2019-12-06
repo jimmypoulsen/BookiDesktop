@@ -16,6 +16,7 @@ namespace BookiDesktop {
 
         private string nameOfFormOpen;
         private static MainMenuGUI instance = null;
+        private string newTitle;
 
         public MainMenuGUI() {
             InitializeComponent();
@@ -93,7 +94,7 @@ namespace BookiDesktop {
 
         public void ChangeButtons(String title) {
 
-            string newTitle = null;
+            newTitle = null;
 
             if (title.Contains("s")) {
                 string oldChar = "s";
@@ -166,19 +167,19 @@ namespace BookiDesktop {
                 venueGUI.Show();
             }
 
-            // change below to match above
-
-            else if (nameOfFormOpen.Equals("TablesGUI")) {
-                EditTablesGUI etGUI = new EditTablesGUI();
-                etGUI.Show();
-
+            else if (nameOfFormOpen.Equals("TablesGUI") && TablesGUI.Instance.idFromTable != -1) {
+                TableGUI tableGUI = new TableGUI();
+                tableGUI.Edit();
+                tableGUI.Show();
             }
-            else if (nameOfFormOpen.Equals("TablePackagesGUI")) {
-                EditTablePackagesGUI etpGUI = new EditTablePackagesGUI();
-                etpGUI.Show();
+      
+            else if (nameOfFormOpen.Equals("TablePackagesGUI") && TablePackagesGUI.Instance.idFromTable != -1) {
+                TablePackageGUI tablePackageGUI = new TablePackageGUI();
+                tablePackageGUI.Edit();
+                tablePackageGUI.Show();
             }
             else {
-                MessageBox.Show("Please select a venue from the list");
+                MessageBox.Show("Please select a " + newTitle +  " from the list");
             }
         }
 
@@ -188,8 +189,18 @@ namespace BookiDesktop {
                 venueGUI.Create();
                 venueGUI.Show();
             }
+            else if (nameOfFormOpen.Equals("TablesGUI")) {
+                TableGUI tableGUI = new TableGUI();
+                tableGUI.Create();
+                tableGUI.Show();
+            }
 
-            // Implement same for tables and tablePackages
+            else if (nameOfFormOpen.Equals("TablePackagesGUI")) {
+                TablePackageGUI tablePackageGUI = new TablePackageGUI();
+                tablePackageGUI.Create();
+                tablePackageGUI.Show();
+            }
+
         }
 
         private async void BtnDelete_Click(object sender, EventArgs e) {
@@ -200,12 +211,35 @@ namespace BookiDesktop {
                     await vCtrl.Delete(VenuesGUI.Instance.idFromTable);
                     VenuesGUI.Instance.UseWaitCursor = false;
                 }
-                catch(Exception) {
-                    MessageBox.Show("Error...cannot delete Venue no: " + VenuesGUI.Instance.idFromTable + " because it has dependencies");
+                catch (Exception) {
+                    MessageBox.Show("Error...cannot delete " + newTitle + " no: " + VenuesGUI.Instance.idFromTable + " because it has dependencies");
+                }
+            } else if (nameOfFormOpen.Equals("TablesGUI") && TablesGUI.Instance.idFromTable != -1) {
+                try {
+                    TablesController tCtrl = new TablesController();
+                    TablesGUI.Instance.UseWaitCursor = true;
+                    await tCtrl.Delete(TablesGUI.Instance.idFromTable);
+                    TablesGUI.Instance.UseWaitCursor = false;
+                }
+                catch (Exception) {
+                    MessageBox.Show("Error...cannot delete " + newTitle + " no: " + TablesGUI.Instance.idFromTable + " because it has dependencies");
                 }
             }
+            else if (nameOfFormOpen.Equals("TablePackagesGUI") && TablePackagesGUI.Instance.idFromTable != -1) {
+                try {
+                    TablePackagesController tpCtrl = new TablePackagesController();
+                    TablePackagesGUI.Instance.UseWaitCursor = true;
+                    await tpCtrl.Delete(TablePackagesGUI.Instance.idFromTable);
+                    TablePackagesGUI.Instance.UseWaitCursor = false;
+                }
+                catch (Exception) {
+                    MessageBox.Show("Error...cannot delete " + newTitle + " no: " + TablePackagesGUI.Instance.idFromTable + " because it has dependencies");
+                }
+
+
+            }
             else {
-                MessageBox.Show("Please select a venue from the list");
+                MessageBox.Show("Please select a " + newTitle + " from the list");
             }
         }
     }

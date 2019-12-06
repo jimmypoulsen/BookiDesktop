@@ -32,7 +32,7 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblCity = new System.Windows.Forms.Label();
             this.lblZip = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblVenueId = new System.Windows.Forms.Label();
             this.tbVenueID = new System.Windows.Forms.TextBox();
             this.BtnSaveChanges = new System.Windows.Forms.Button();
             this.lblBool = new System.Windows.Forms.Label();
@@ -112,14 +112,14 @@
             this.lblZip.TabIndex = 8;
             this.lblZip.Text = "Zip";
             // 
-            // label2
+            // lblVenueId
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(113, 305);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "VenueID";
+            this.lblVenueId.AutoSize = true;
+            this.lblVenueId.Location = new System.Drawing.Point(113, 305);
+            this.lblVenueId.Name = "lblVenueId";
+            this.lblVenueId.Size = new System.Drawing.Size(62, 17);
+            this.lblVenueId.TabIndex = 9;
+            this.lblVenueId.Text = "VenueID";
             // 
             // tbVenueID
             // 
@@ -155,7 +155,7 @@
             this.Controls.Add(this.lblBool);
             this.Controls.Add(this.BtnSaveChanges);
             this.Controls.Add(this.tbVenueID);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblVenueId);
             this.Controls.Add(this.lblZip);
             this.Controls.Add(this.lblCity);
             this.Controls.Add(this.lblAddress);
@@ -183,7 +183,7 @@
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label lblZip;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblVenueId;
         private System.Windows.Forms.TextBox tbVenueID;
         private System.Windows.Forms.Button BtnSaveChanges;
         private System.Windows.Forms.Label lblBool;

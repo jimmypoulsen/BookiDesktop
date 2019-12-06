@@ -29,12 +29,12 @@ namespace BookiDesktop.GUIs {
             create = false;
             lblTitle.Text = "Edit Venue";
             BtnSaveChanges.Text = "Save changes";
-            tbVenueID.ReadOnly = true;
-            tbVenueID.Text = "" + venuesGUI.idFromTable;
             tbName.Text = editedVenue.Name;
             tbAddress.Text = editedVenue.Address;
             tbZip.Text = "" + editedVenue.Zip;
             tbCity.Text = editedVenue.City;
+            tbVenueID.ReadOnly = true;
+            tbVenueID.Text = "" + venuesGUI.idFromTable;
         }
 
         public void Create() {
@@ -46,43 +46,38 @@ namespace BookiDesktop.GUIs {
             BtnSaveChanges.Text = "Create";
 
             create = true;
-            tbVenueID.ReadOnly = true;
-            tbVenueID.Text = "";
             tbName.Text = "";
             tbAddress.Text = "";
             tbZip.Text = "";
             tbCity.Text = "";
+            tbVenueID.ReadOnly = true;
+            tbVenueID.Text = "";
             //res = true;
             // return res;
         }
 
         private async void BtnSaveChanges_Click(object sender, EventArgs e) {
             VenuesController vCtrl = new VenuesController();
-            
-            if (create && TextBoxesHasValues()) {
-                try {
-                    Venue newVenue = new Venue { Name = tbName.Text, Address = tbAddress.Text, Zip = Int32.Parse(tbZip.Text), City = tbCity.Text };
-                    await vCtrl.Create(newVenue);
-                    this.Visible = false;
-                }
-                catch {
-                    MessageBox.Show("Error...One or more fields are empty!");
-                }
-                
-            }
-            else if (!create && TextBoxesHasValues()) {
-                try {
-                    int id = editedVenue.Id;
-                    Venue changedVenue = new Venue {Id = Int32.Parse(tbVenueID.Text), Name = tbName.Text, Address = tbAddress.Text, Zip = Int32.Parse(tbZip.Text), City = tbCity.Text };
-                    await vCtrl.Update(changedVenue.Id, changedVenue);
-                    this.Visible = false;
-                }
-                catch {
-                    MessageBox.Show("Error...One or more fields are empty!");
-                }
-            }
+            if (TextBoxesHasValues()) { 
+                if (create) {
+                        Venue newVenue = new Venue { Name = tbName.Text, Address = tbAddress.Text, Zip = Int32.Parse(tbZip.Text), City = tbCity.Text };
+                        await vCtrl.Create(newVenue);
+                        this.Visible = false;
 
-        }
+                }
+                else if (!create) {
+                        int id = editedVenue.Id;
+                    //Venue changedVenue = new Venue { Id = Int32.Parse(tbVenueID.Text), Name = tbName.Text, Address = tbAddress.Text, Zip = Int32.Parse(tbZip.Text), City = tbCity.Text };
+                        Venue updatedVenue = await vCtrl.Get(editedVenue.Id);
+                        await vCtrl.Update(updatedVenue.Id, updatedVenue);
+                        this.Visible = false;
+            
+                }
+            } else {
+                    MessageBox.Show("Error...One or more fields are empty!"); ;
+                }
+
+            }
         // Implement this in tables and tablePackages
         public bool TextBoxesHasValues() {
             bool res = false;           
