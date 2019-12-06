@@ -35,7 +35,7 @@ namespace BookiDesktop {
             tablePackagesGridView.UseWaitCursor = false;
         }
 
-        private void tablePackagesGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void tablePackagesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (tablePackagesGridView.SelectedCells.Count > 0) {
 
@@ -47,6 +47,7 @@ namespace BookiDesktop {
                 }
             }
         }
+
     }
 }
 

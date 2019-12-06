@@ -8,9 +8,9 @@ C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\bin\Debug\Newtonsoft.Json.xml
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\bin\Debug\System.Web.Http.xml
-C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csprojAssemblyReference.cache
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.DashboardGUI.resources
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.TableGUI.resources
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.TablePackageGUI.resources
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.VenueGUI.resources
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.MainMenuGUI.resources
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Properties.Resources.resources
@@ -21,4 +21,4 @@ C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csproj.CopyComplete
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.exe
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.pdb
-C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.TablePackageGUI.resources
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csprojAssemblyReference.cache

@@ -40,6 +40,7 @@
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnCreateNew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelNameOfFormOpen = new System.Windows.Forms.Label();
             this.sidePanelNav.SuspendLayout();
             this.HeaderNavBar.SuspendLayout();
             this.HeaderForContent.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             this.HeaderForContent.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.HeaderForContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HeaderForContent.Controls.Add(this.labelNameOfFormOpen);
             this.HeaderForContent.Controls.Add(this.lblNameOfFormOpen);
             this.HeaderForContent.Controls.Add(this.BtnDelete);
             this.HeaderForContent.Controls.Add(this.BtnEdit);
@@ -222,6 +224,15 @@
             this.panel3.Size = new System.Drawing.Size(1346, 29);
             this.panel3.TabIndex = 8;
             // 
+            // labelNameOfFormOpen
+            // 
+            this.labelNameOfFormOpen.AutoSize = true;
+            this.labelNameOfFormOpen.Location = new System.Drawing.Point(326, 12);
+            this.labelNameOfFormOpen.Name = "labelNameOfFormOpen";
+            this.labelNameOfFormOpen.Size = new System.Drawing.Size(115, 17);
+            this.labelNameOfFormOpen.TabIndex = 9;
+            this.labelNameOfFormOpen.Text = "nameofformopen";
+            // 
             // MainMenuGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,6 +273,7 @@
         private System.Windows.Forms.Button BtnCreateNew;
         private System.Windows.Forms.Label lblNameOfFormOpen;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label labelNameOfFormOpen;
     }
 }
 

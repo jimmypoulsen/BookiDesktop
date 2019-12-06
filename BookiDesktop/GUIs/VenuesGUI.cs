@@ -42,7 +42,7 @@ namespace BookiDesktop {
             venuesGridView.Refresh();
         }
 
-        private void venuesGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void venuesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (venuesGridView.SelectedCells.Count > 0) {
 

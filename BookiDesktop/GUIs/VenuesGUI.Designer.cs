@@ -37,7 +37,7 @@
             this.venuesGridView.RowTemplate.Height = 24;
             this.venuesGridView.Size = new System.Drawing.Size(800, 408);
             this.venuesGridView.TabIndex = 4;
-            this.venuesGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.venuesGridView_CellContentClick);
+            this.venuesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.venuesGridView_CellClick);
             // 
             // lblSelectedRow
             // 

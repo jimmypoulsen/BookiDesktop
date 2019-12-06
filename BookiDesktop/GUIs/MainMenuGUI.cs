@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace BookiDesktop {
         public MainMenuGUI() {
             InitializeComponent();
             DashboardGUI dashboardGUI = DashboardGUI.Instance;
-            Nav(dashboardGUI, content, "");
+            Nav(dashboardGUI, content);
             RecolorButtons();
             BtnDashboard.BackColor = Color.DarkGray;
         }
@@ -46,7 +47,7 @@ namespace BookiDesktop {
         private void BtnDashboard_Click(object sender, EventArgs e) {
             //DashboardGUI dashboardGUI = new DashboardGUI();
             DashboardGUI dashboardGUI = DashboardGUI.Instance;
-            Nav(dashboardGUI, content, "");
+            Nav(dashboardGUI, content);
             RecolorButtons();
             BtnDashboard.BackColor = Color.DarkGray;
         }
@@ -54,7 +55,7 @@ namespace BookiDesktop {
         private void BtnVenues_Click(object sender, EventArgs e) {
             //VenuesGUI venueGUI = new VenuesGUI();
             VenuesGUI venuesGUI = VenuesGUI.Instance;
-            Nav(venuesGUI, content, "Venue");
+            Nav(venuesGUI, content);
             RecolorButtons();
             BtnVenues.BackColor = Color.DarkGray;
             venuesGUI.AddDataToTable();
@@ -62,7 +63,7 @@ namespace BookiDesktop {
 
         private void BtnTables_Click(object sender, EventArgs e) {
             TablesGUI tablesGUI = TablesGUI.Instance;
-            Nav(tablesGUI, content, "Table");
+            Nav(tablesGUI, content);
             RecolorButtons();
             BtnTables.BackColor = Color.DarkGray;
             tablesGUI.AddDataToTable();
@@ -70,7 +71,7 @@ namespace BookiDesktop {
 
         private void BtnTablePackages_Click(object sender, EventArgs e) {
             TablePackagesGUI tablePackagesGUI = TablePackagesGUI.Instance;
-            Nav(tablePackagesGUI, content, "Table package");
+            Nav(tablePackagesGUI, content);
             RecolorButtons();
             BtnTablePackages.BackColor = Color.DarkGray;
             tablePackagesGUI.AddDataToTable();
@@ -114,7 +115,7 @@ namespace BookiDesktop {
             BtnTablePackages.BackColor = Color.White;
         }
 
-        public void Nav(Form form, Panel panel, String title) {
+        public void Nav(Form form, Panel panel) {
             // changing view for content panel
             form.TopLevel = false;
             form.Size = panel.Size; // for responsive size
@@ -131,8 +132,8 @@ namespace BookiDesktop {
                 currTitle = nameOfFormOpen.Replace("GUI", "");
                 newTitle = InsertSpaceBeforeUpperCase(currTitle);
             }
-            lblNameOfFormOpen.Text =  newTitle;
-            
+            lblNameOfFormOpen.Text = newTitle;
+
             ChangeButtons(newTitle.ToLower());
             if (nameOfFormOpen.Equals("DashboardGUI")) {
                 HideButtons();
@@ -172,17 +173,17 @@ namespace BookiDesktop {
                 tableGUI.Edit();
                 tableGUI.Show();
             }
-      
+
             else if (nameOfFormOpen.Equals("TablePackagesGUI") && TablePackagesGUI.Instance.idFromTable != -1) {
                 TablePackageGUI tablePackageGUI = new TablePackageGUI();
                 tablePackageGUI.Edit();
                 tablePackageGUI.Show();
             }
             else {
-                MessageBox.Show("Please select a " + newTitle +  " from the list");
+                MessageBox.Show("Please select a " + newTitle + " from the list");
             }
         }
-
+                                                                                
         private void BtnCreateNew_Click(object sender, EventArgs e) {
             if (nameOfFormOpen.Equals("VenuesGUI")) {
                 VenueGUI venueGUI = new VenueGUI();
@@ -204,6 +205,8 @@ namespace BookiDesktop {
         }
 
         private async void BtnDelete_Click(object sender, EventArgs e) {
+            labelNameOfFormOpen.Text = nameOfFormOpen;
+
             if (nameOfFormOpen.Equals("VenuesGUI") && VenuesGUI.Instance.idFromTable != -1) {
                 try {
                     VenuesController vCtrl = new VenuesController();
@@ -212,9 +215,10 @@ namespace BookiDesktop {
                     VenuesGUI.Instance.UseWaitCursor = false;
                 }
                 catch (Exception) {
-                    MessageBox.Show("Error...cannot delete " + newTitle + " no: " + VenuesGUI.Instance.idFromTable + " because it has dependencies");
+                    MessageBox.Show("Error...occured");
                 }
-            } else if (nameOfFormOpen.Equals("TablesGUI") && TablesGUI.Instance.idFromTable != -1) {
+            }
+            else if (nameOfFormOpen.Equals("TablesGUI") && TablesGUI.Instance.idFromTable != -1) {
                 try {
                     TablesController tCtrl = new TablesController();
                     TablesGUI.Instance.UseWaitCursor = true;
@@ -222,7 +226,7 @@ namespace BookiDesktop {
                     TablesGUI.Instance.UseWaitCursor = false;
                 }
                 catch (Exception) {
-                    MessageBox.Show("Error...cannot delete " + newTitle + " no: " + TablesGUI.Instance.idFromTable + " because it has dependencies");
+                    MessageBox.Show("Error...occured");
                 }
             }
             else if (nameOfFormOpen.Equals("TablePackagesGUI") && TablePackagesGUI.Instance.idFromTable != -1) {
@@ -233,14 +237,15 @@ namespace BookiDesktop {
                     TablePackagesGUI.Instance.UseWaitCursor = false;
                 }
                 catch (Exception) {
-                    MessageBox.Show("Error...cannot delete " + newTitle + " no: " + TablePackagesGUI.Instance.idFromTable + " because it has dependencies");
+                    MessageBox.Show("Error...occured");
                 }
-
-
             }
+
             else {
                 MessageBox.Show("Please select a " + newTitle + " from the list");
             }
-        }
-    }
+
+        }   
+    } 
+    
 }

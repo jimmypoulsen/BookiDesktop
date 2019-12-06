@@ -37,7 +37,7 @@
             this.tablesGridView.RowTemplate.Height = 24;
             this.tablesGridView.Size = new System.Drawing.Size(801, 418);
             this.tablesGridView.TabIndex = 1;
-            this.tablesGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablesGridView_CellContentClick);
+            this.tablesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablesGridView_CellClick);
             // 
             // lblSelectedRow
             // 

@@ -37,7 +37,7 @@ namespace BookiDesktop {
             tablesGridView.UseWaitCursor = false;
         }
 
-        private void tablesGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void tablesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (tablesGridView.SelectedCells.Count > 0) {
 
