@@ -17,6 +17,7 @@ namespace BookiDesktop {
         public TablePackagesGUI() {
             InitializeComponent();
             AddDataToTable();
+            idFromTable = -1;
         }
 
         public static TablePackagesGUI Instance {
@@ -33,6 +34,9 @@ namespace BookiDesktop {
             tablePackagesGridView.UseWaitCursor = true;
             tablePackagesGridView.DataSource = await tpCtrl.Get();
             tablePackagesGridView.UseWaitCursor = false;
+            lblSelectedRow.Text = "";
+            tablePackagesGridView.ClearSelection();
+            tablePackagesGridView.CurrentCell = null;
         }
 
         private void tablePackagesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
@@ -47,6 +51,7 @@ namespace BookiDesktop {
                 }
             }
         }
+
 
     }
 }

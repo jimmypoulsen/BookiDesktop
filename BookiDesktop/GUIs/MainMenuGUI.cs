@@ -166,18 +166,23 @@ namespace BookiDesktop {
                 VenueGUI venueGUI = new VenueGUI();
                 venueGUI.Edit();
                 venueGUI.Show();
+                Debug.WriteLine("IdFromVenuesTable --> " + VenuesGUI.Instance.idFromTable);
+
             }
 
             else if (nameOfFormOpen.Equals("TablesGUI") && TablesGUI.Instance.idFromTable != -1) {
                 TableGUI tableGUI = new TableGUI();
                 tableGUI.Edit();
                 tableGUI.Show();
+                Debug.WriteLine("IdFromTablesTable --> " + TablesGUI.Instance.idFromTable);
+
             }
 
             else if (nameOfFormOpen.Equals("TablePackagesGUI") && TablePackagesGUI.Instance.idFromTable != -1) {
                 TablePackageGUI tablePackageGUI = new TablePackageGUI();
                 tablePackageGUI.Edit();
                 tablePackageGUI.Show();
+                Debug.WriteLine("IdFromTablePackagesTable --> " + TablePackagesGUI.Instance.idFromTable);
             }
             else {
                 MessageBox.Show("Please select a " + newTitle + " from the list");
@@ -205,8 +210,6 @@ namespace BookiDesktop {
         }
 
         private async void BtnDelete_Click(object sender, EventArgs e) {
-            labelNameOfFormOpen.Text = nameOfFormOpen;
-
             if (nameOfFormOpen.Equals("VenuesGUI") && VenuesGUI.Instance.idFromTable != -1) {
                 try {
                     VenuesController vCtrl = new VenuesController();

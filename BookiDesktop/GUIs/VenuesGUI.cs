@@ -35,6 +35,9 @@ namespace BookiDesktop {
             venuesGridView.UseWaitCursor = true;
             venuesGridView.DataSource = await vCtrl.Get();
             venuesGridView.UseWaitCursor = false;
+            lblSelectedRow.Text = "";
+            venuesGridView.ClearSelection();
+            venuesGridView.CurrentCell = null;
         }
 
         public void RefreshDataGrid() {

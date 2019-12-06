@@ -19,6 +19,7 @@ namespace BookiDesktop {
         public TablesGUI() {
             InitializeComponent();
             AddDataToTable();
+            idFromTable = -1;
         }
 
         public static TablesGUI Instance {
@@ -35,6 +36,9 @@ namespace BookiDesktop {
             tablesGridView.UseWaitCursor = true;
             tablesGridView.DataSource = await tCtrl.Get();
             tablesGridView.UseWaitCursor = false;
+            lblSelectedRow.Text = "";
+            tablesGridView.ClearSelection();
+            tablesGridView.CurrentCell = null;
         }
 
         private void tablesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
