@@ -18,6 +18,8 @@ namespace BookiDesktop {
             InitializeComponent();
             AddDataToTable();
             idFromTable = -1;
+            // Disable editing of cells
+            tablePackagesGridView.ReadOnly = true;
         }
 
         public static TablePackagesGUI Instance {
@@ -30,19 +32,24 @@ namespace BookiDesktop {
         }
 
         public async void AddDataToTable() {
-            TablePackagesController tpCtrl = new TablePackagesController();
+            EmployeesController eCtrl = new EmployeesController();
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
+
             tablePackagesGridView.UseWaitCursor = true;
-            tablePackagesGridView.DataSource = await tpCtrl.Get();
+            //tablesGridView.DataSource = await tCtrl.Get();
+            tablePackagesGridView.DataSource = await eCtrl.GetTablePackages(dashboardGUI.EmployeeNo);
             tablePackagesGridView.UseWaitCursor = false;
             lblSelectedRow.Text = "";
             tablePackagesGridView.ClearSelection();
             tablePackagesGridView.CurrentCell = null;
+
         }
 
         private void tablePackagesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (tablePackagesGridView.SelectedCells.Count > 0) {
-
+                    // If header is clicked - do nothing - prevents crash
+                    if (e.RowIndex == -1) return;
                     int index = e.RowIndex;
                     DataGridViewRow selectedRow = tablePackagesGridView.Rows[index];
                     idFromTable = (int)selectedRow.Cells[0].Value;

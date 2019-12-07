@@ -29,34 +29,42 @@ namespace BookiDesktop.GUIs {
             tablePackagesGUI = TablePackagesGUI.Instance;
             editedTablePackage = await tpCtrl.Get(tablePackagesGUI.idFromTable);
 
+            // Finding venue from venueID on table and adding it to combobox.
             Venue venue = await vCtrl.Get(editedTablePackage.VenueId);
-            lblTitle.Text = "Edit Table Package";
 
+            // Creating a list because combobox demands it.
+            var venuesList = new List<Venue>();
+            venuesList.Add(venue);
+
+            lblTitle.Text = "Edit Table Package";
             create = false;
             BtnSaveChanges.Text = "Save changes";
             tbName.Text = editedTablePackage.Name;
             tbPrice.Text = "" + editedTablePackage.Price;
-            var venuesList = new List<Venue>();
-            venuesList.Add(venue);
-            cbVenue.DataSource = venuesList;            
+
+            cbVenue.DataSource = venuesList;
+
+            // Resetting idFromTable to remove possibility to show other employees tables
+            tablePackagesGUI.idFromTable = -1;
         }
 
-        public async void CreateAsync() {
+        public async void Create() {
             TablesController vCtrl = new TablesController();
             EmployeesController eCtrl = new EmployeesController();
             tablePackagesGUI = TablePackagesGUI.Instance;
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
+
             lblTitle.Text = "Create Table Package";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(1);
-            foreach (Venue v in venues) {
-
-                venuesList.Add(v);
-            }
+            List<Venue> venues = await eCtrl.GetVenues(dashboardGUI.EmployeeNo);
+                foreach (Venue v in venues) {
+                    venuesList.Add(v);
+                }
             cbVenue.DataSource = venuesList;
             create = true;
             tbName.Text = "";
-            tbPrice.Text = "";
+            tbPrice.Text = ""; 
         }
 
 
@@ -69,12 +77,14 @@ namespace BookiDesktop.GUIs {
                     TablePackage newTablePackage = new TablePackage { Name = tbName.Text, Price = Int32.Parse(tbPrice.Text), VenueId = currVenue.Id };
                     await tpCtrl.Create(newTablePackage);
                     this.Visible = false;
-                }/* else if (!create) {
-                    int id = editedTablePackage.Id;
+                } else if (!create) {
+                    MessageBox.Show("Method not implemented");
+                    this.Visible = false;
+                    /*int id = editedTablePackage.Id;
                     TablePackage updatedTablePackage = await tpCtrl.Get(editedTablePackage.Id);
                     await tpCtrl.Update(updatedTablePackage.Id, updatedTablePackage);
-                    this.Visible = false;
-                }*/
+                    this.Visible = false;*/
+                }
 
                 else {
                     MessageBox.Show("Error...One or more fields are empty!"); ;
@@ -82,13 +92,13 @@ namespace BookiDesktop.GUIs {
             }
 
         }
-            public bool TextBoxesHasValues() {
-                bool res = false;
-                if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbPrice.Text)) {
-                    res = true;
-                }
-                return res;
+        public bool TextBoxesHasValues() {
+            bool res = false;
+            if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbPrice.Text)) {
+                res = true;
             }
+            return res;
+        }
         
     }
 }

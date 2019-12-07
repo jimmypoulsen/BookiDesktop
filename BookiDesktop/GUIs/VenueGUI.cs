@@ -66,11 +66,14 @@ namespace BookiDesktop.GUIs {
 
                 }
                 else if (!create) {
-                        int id = editedVenue.Id;
+                    MessageBox.Show("Method not implemented");
+                    this.Visible = false;
+                    
+                    /*int id = editedVenue.Id;
                     //Venue changedVenue = new Venue { Id = Int32.Parse(tbVenueID.Text), Name = tbName.Text, Address = tbAddress.Text, Zip = Int32.Parse(tbZip.Text), City = tbCity.Text };
                         Venue updatedVenue = await vCtrl.Get(editedVenue.Id);
                         await vCtrl.Update(updatedVenue.Id, updatedVenue);
-                        this.Visible = false;
+                        this.Visible = false;*/
             
                 }
             } else {
@@ -78,7 +81,6 @@ namespace BookiDesktop.GUIs {
                 }
 
             }
-        // Implement this in tables and tablePackages
         public bool TextBoxesHasValues() {
             bool res = false;           
             if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbAddress.Text) && !string.IsNullOrWhiteSpace(tbZip.Text) && !string.IsNullOrWhiteSpace(tbCity.Text)) {

@@ -45,7 +45,6 @@ namespace BookiDesktop.GUIs {
             cbVenueID.DataSource = venuesList;
             // Resetting idFromTable to remove possibility to show other employees tables
             tablesGUI.idFromTable = -1;
-            
         }
 
         public async Task Create() {
@@ -58,10 +57,9 @@ namespace BookiDesktop.GUIs {
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
             List<Venue> venues = await eCtrl.GetVenues(dashboardGUI.EmployeeNo);
-            foreach (Venue v in venues) {
-                
-                venuesList.Add(v);
-            }
+                foreach (Venue v in venues) {
+                    venuesList.Add(v);
+                }
             cbVenueID.DataSource = venuesList;
             create = true;
             tbSeats.Text = "";
@@ -79,12 +77,14 @@ namespace BookiDesktop.GUIs {
                     await tCtrl.Create(newTable);
                     this.Visible = false;
 
-                }/* else if (!create) {
-                    int id = editedTable.Id;
+                } else if (!create) {
+                    MessageBox.Show("Method not implemented");
+                    this.Visible = false;
+                    /*int id = editedTable.Id;
                     Table updatedTable = await tCtrl.Get(editedTable.Id);
                     await tCtrl.Update(updatedTable.Id, updatedTable);
-                    this.Visible = false;
-                }*/                
+                    this.Visible = false;*/
+                }             
             }
             else {
                 MessageBox.Show("Error...One or more fields are empty!"); ;

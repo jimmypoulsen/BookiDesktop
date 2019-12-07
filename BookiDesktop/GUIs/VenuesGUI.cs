@@ -20,6 +20,8 @@ namespace BookiDesktop {
             InitializeComponent();
             AddDataToTable();
             idFromTable = -1;
+            // Disable editing of cells
+            venuesGridView.ReadOnly = true;
         }
         public static VenuesGUI Instance {
             get {
@@ -51,7 +53,8 @@ namespace BookiDesktop {
         private void venuesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (venuesGridView.SelectedCells.Count > 0) {
-
+                    // If header is clicked - do nothing - prevents crash
+                    if (e.RowIndex == -1) return;
                     int index = e.RowIndex;
                     DataGridViewRow selectedRow = venuesGridView.Rows[index];
                     idFromTable = (int) selectedRow.Cells[0].Value;

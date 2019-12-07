@@ -21,6 +21,8 @@ namespace BookiDesktop {
             InitializeComponent();
             AddDataToTable();
             idFromTable = -1;
+            // Disable editing of cells
+            tablesGridView.ReadOnly = true;
         }
 
         public static TablesGUI Instance {
@@ -33,11 +35,9 @@ namespace BookiDesktop {
         }
 
         public async void AddDataToTable() {
-            //TablesController tCtrl = new TablesController();
             EmployeesController eCtrl = new EmployeesController();
             DashboardGUI dashboardGUI = DashboardGUI.Instance;
             tablesGridView.UseWaitCursor = true;
-            //tablesGridView.DataSource = await tCtrl.Get();
             Debug.WriteLine("employeeNo: " + dashboardGUI.EmployeeNo);
             tablesGridView.DataSource = await eCtrl.GetTables(dashboardGUI.EmployeeNo);
             tablesGridView.UseWaitCursor = false;
@@ -49,7 +49,8 @@ namespace BookiDesktop {
         private void tablesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (tablesGridView.SelectedCells.Count > 0) {
-
+                    // If header is clicked - do nothing - prevents crash
+                    if (e.RowIndex == -1) return;
                     int index = e.RowIndex;
                     DataGridViewRow selectedRow = tablesGridView.Rows[index];
                     idFromTable = (int)selectedRow.Cells[0].Value;

@@ -71,5 +71,23 @@ namespace BookiDesktop.Controllers {
             return tables;
         }
 
+        public async Task<List<TablePackage>> GetTablePackages(int id) {
+            TablePackagesController tpCtrl = new TablePackagesController();
+            List<TablePackage> currTablePackages = await tpCtrl.Get();
+            List<TablePackage> tablePackages = new List<TablePackage>();
+            List<Venue> venueInfo = await GetVenues(id);
+
+            List<int> venueIDs = new List<int>();
+            foreach (Venue venue in venueInfo) {
+                venueIDs.Add(venue.Id);
+                foreach (TablePackage tablePackage in currTablePackages) {
+                    if (tablePackage.VenueId.Equals(venue.Id)) {
+                        tablePackages.Add(tablePackage);
+                    }
+                }
+            }
+            return tablePackages;
+        }
+
     }
 }
