@@ -22,3 +22,4 @@ C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.exe
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.pdb
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csprojAssemblyReference.cache
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.EmployeesGUI.resources

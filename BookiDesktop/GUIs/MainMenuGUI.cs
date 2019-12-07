@@ -77,6 +77,14 @@ namespace BookiDesktop {
             tablePackagesGUI.AddDataToTable();
         }
 
+        private void BtnEmployees_Click(object sender, EventArgs e) {
+            EmployeesGUI employeesGUI = EmployeesGUI.Instance;
+            Nav(employeesGUI, content);
+            RecolorButtons();
+            BtnEmployees.BackColor = Color.DarkGray;
+            employeesGUI.AddDataToTable();
+        }
+
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
 
         }
@@ -135,7 +143,7 @@ namespace BookiDesktop {
             lblNameOfFormOpen.Text = newTitle;
 
             ChangeButtons(newTitle.ToLower());
-            if (nameOfFormOpen.Equals("DashboardGUI")) {
+            if (nameOfFormOpen.Equals("DashboardGUI") || nameOfFormOpen.Equals("VenuesGUI")) {
                 HideButtons();
             }
             else {
@@ -248,7 +256,9 @@ namespace BookiDesktop {
                 MessageBox.Show("Please select a " + newTitle + " from the list");
             }
 
-        }   
+        }
+
+        
     } 
     
 }

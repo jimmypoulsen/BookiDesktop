@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -33,6 +34,7 @@ namespace BookiDesktop.Controllers {
         public async Task<List<Venue>> GetVenues(int id) {
             List<Employee> EmployeeInfo = new List<Employee>();
             List<Venue> venues = new List<Venue>();
+            List<Table> tables = new List<Table>();
             bCtrl = new BaseController();
             using (var client = bCtrl.GetClient()) {
 
@@ -46,10 +48,27 @@ namespace BookiDesktop.Controllers {
                     foreach (Venue venue in employee.Venues) {
                         venues.Add(venue);
                     }
-                    
                 }
             }
             return venues;
+        }
+
+        public async Task<List<Table>> GetTables(int id) {
+            TablesController tCtrl = new TablesController();
+            List<Table> currTables = await tCtrl.Get();
+            List<Table> tables = new List<Table>();
+            List<Venue> venueInfo = await GetVenues(id);
+
+            List<int> venueIDs = new List<int>();
+            foreach (Venue venue in venueInfo) {
+                venueIDs.Add(venue.Id);
+                foreach (Table table in currTables) {
+                    if (table.VenueId.Equals(venue.Id)) {
+                        tables.Add(table);
+                    }
+                }
+            }
+            return tables;
         }
 
     }

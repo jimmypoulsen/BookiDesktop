@@ -40,6 +40,7 @@
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnCreateNew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnEmployees = new System.Windows.Forms.Button();
             this.sidePanelNav.SuspendLayout();
             this.HeaderNavBar.SuspendLayout();
             this.HeaderForContent.SuspendLayout();
@@ -49,6 +50,7 @@
             // 
             this.sidePanelNav.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.sidePanelNav.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sidePanelNav.Controls.Add(this.BtnEmployees);
             this.sidePanelNav.Controls.Add(this.BtnTablePackages);
             this.sidePanelNav.Controls.Add(this.BtnTables);
             this.sidePanelNav.Controls.Add(this.BtnVenues);
@@ -60,7 +62,7 @@
             // 
             // BtnTablePackages
             // 
-            this.BtnTablePackages.Location = new System.Drawing.Point(3, 232);
+            this.BtnTablePackages.Location = new System.Drawing.Point(3, 306);
             this.BtnTablePackages.Name = "BtnTablePackages";
             this.BtnTablePackages.Size = new System.Drawing.Size(133, 69);
             this.BtnTablePackages.TabIndex = 3;
@@ -70,7 +72,7 @@
             // 
             // BtnTables
             // 
-            this.BtnTables.Location = new System.Drawing.Point(4, 157);
+            this.BtnTables.Location = new System.Drawing.Point(3, 231);
             this.BtnTables.Name = "BtnTables";
             this.BtnTables.Size = new System.Drawing.Size(132, 69);
             this.BtnTables.TabIndex = 2;
@@ -222,6 +224,16 @@
             this.panel3.Size = new System.Drawing.Size(1346, 29);
             this.panel3.TabIndex = 8;
             // 
+            // BtnEmployees
+            // 
+            this.BtnEmployees.Location = new System.Drawing.Point(3, 156);
+            this.BtnEmployees.Name = "BtnEmployees";
+            this.BtnEmployees.Size = new System.Drawing.Size(132, 69);
+            this.BtnEmployees.TabIndex = 4;
+            this.BtnEmployees.Text = "Employees";
+            this.BtnEmployees.UseVisualStyleBackColor = true;
+            this.BtnEmployees.Click += new System.EventHandler(this.BtnEmployees_Click);
+            // 
             // MainMenuGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,6 +274,7 @@
         private System.Windows.Forms.Button BtnCreateNew;
         private System.Windows.Forms.Label lblNameOfFormOpen;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BtnEmployees;
     }
 }
 

@@ -12,8 +12,9 @@ using System.Windows.Forms;
 namespace BookiDesktop {
     public partial class DashboardGUI : Form {
 
+        public int EmployeeNo { get; set; }
         private static DashboardGUI instance = null;
-
+        
         public DashboardGUI() {
             InitializeComponent();
         }
@@ -31,11 +32,9 @@ namespace BookiDesktop {
 
         }
 
-        private async void BtnFindVenues_Click(object sender, EventArgs e) {
-            EmployeesController eCtrl = new EmployeesController();
-            venuesGridView.UseWaitCursor = true;
-            venuesGridView.DataSource = await eCtrl.GetVenues(Int32.Parse(tbEmployeeNo.Text));
-            venuesGridView.UseWaitCursor = false;
+        private void BtnFindVenues_Click(object sender, EventArgs e) {
+            EmployeeNo = (Int32.Parse(tbEmployeeNo.Text));
+            lblDataFetched.Text = "Data found for employee: " + tbEmployeeNo.Text;
         }
 
     }

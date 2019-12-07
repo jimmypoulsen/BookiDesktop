@@ -29,27 +29,35 @@ namespace BookiDesktop.GUIs {
             tablesGUI = TablesGUI.Instance;
             editedTable = await tCtrl.Get(tablesGUI.idFromTable);
 
+            // Finding venue from venueID on table and adding it to combobox.
             Venue venue = await vCtrl.Get(editedTable.VenueId);
+
+            // Creating a list because combobox demands it.
+            var venuesList = new List<Venue>();
+            venuesList.Add(venue);
+
             lblTitle.Text = "Edit Table";
             create = false;
             BtnSaveChanges.Text = "Save changes";
             tbSeats.Text = "" + editedTable.NoOfSeats;
             tbName.Text = editedTable.Name;
-            // Creating list because combobox demands it.
-            // Finding venue from venueID on table and adding it to combobox.
-            var venuesList = new List<Venue>();
-            venuesList.Add(venue);
+
             cbVenueID.DataSource = venuesList;
+            // Resetting idFromTable to remove possibility to show other employees tables
+            tablesGUI.idFromTable = -1;
+            
         }
 
         public async Task Create() {
             TablesController vCtrl = new TablesController();
             EmployeesController eCtrl = new EmployeesController();
             tablesGUI = TablesGUI.Instance;
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
+
             lblTitle.Text = "Create Table";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(1);
+            List<Venue> venues = await eCtrl.GetVenues(dashboardGUI.EmployeeNo);
             foreach (Venue v in venues) {
                 
                 venuesList.Add(v);

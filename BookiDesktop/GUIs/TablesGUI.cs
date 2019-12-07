@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,9 +33,13 @@ namespace BookiDesktop {
         }
 
         public async void AddDataToTable() {
-            TablesController tCtrl = new TablesController();
+            //TablesController tCtrl = new TablesController();
+            EmployeesController eCtrl = new EmployeesController();
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
             tablesGridView.UseWaitCursor = true;
-            tablesGridView.DataSource = await tCtrl.Get();
+            //tablesGridView.DataSource = await tCtrl.Get();
+            Debug.WriteLine("employeeNo: " + dashboardGUI.EmployeeNo);
+            tablesGridView.DataSource = await eCtrl.GetTables(dashboardGUI.EmployeeNo);
             tablesGridView.UseWaitCursor = false;
             lblSelectedRow.Text = "";
             tablesGridView.ClearSelection();

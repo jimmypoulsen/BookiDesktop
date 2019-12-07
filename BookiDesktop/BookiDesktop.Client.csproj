@@ -69,6 +69,12 @@
     <Compile Include="GUIs\DashboardGUI.Designer.cs">
       <DependentUpon>DashboardGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIs\EmployeesGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\EmployeesGUI.Designer.cs">
+      <DependentUpon>EmployeesGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIs\TableGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="GUIs\DashboardGUI.resx">
       <DependentUpon>DashboardGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\EmployeesGUI.resx">
+      <DependentUpon>EmployeesGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\TableGUI.resx">
       <DependentUpon>TableGUI.cs</DependentUpon>
