@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,32 +25,38 @@ namespace BookiDesktop.GUIs {
 
         public async void Edit() {
             TablePackagesController tpCtrl = new TablePackagesController();
+            VenuesController vCtrl = new VenuesController();
             tablePackagesGUI = TablePackagesGUI.Instance;
             editedTablePackage = await tpCtrl.Get(tablePackagesGUI.idFromTable);
-            lblBool.Text = "editedTablePackageID: " + editedTablePackage.Id;
-            create = false;
+
+            Venue venue = await vCtrl.Get(editedTablePackage.VenueId);
             lblTitle.Text = "Edit Table Package";
+
+            create = false;
             BtnSaveChanges.Text = "Save changes";
             tbName.Text = editedTablePackage.Name;
             tbPrice.Text = "" + editedTablePackage.Price;
-            tbVenueID.ReadOnly = true;
-            tbVenueID.Text = "" + tablePackagesGUI.idFromTable;
+            var venuesList = new List<Venue>();
+            venuesList.Add(venue);
+            cbVenue.DataSource = venuesList;            
         }
 
-        public void Create() {
-            //bool res = false;
-            TablePackagesController vCtrl = new TablePackagesController();
-            lblBool.Text = "Creating Table Package";
+        public async void CreateAsync() {
+            TablesController vCtrl = new TablesController();
+            EmployeesController eCtrl = new EmployeesController();
             tablePackagesGUI = TablePackagesGUI.Instance;
             lblTitle.Text = "Create Table Package";
             BtnSaveChanges.Text = "Create";
+            var venuesList = new List<Venue>();
+            List<Venue> venues = await eCtrl.GetVenues(1);
+            foreach (Venue v in venues) {
 
+                venuesList.Add(v);
+            }
+            cbVenue.DataSource = venuesList;
             create = true;
             tbName.Text = "";
             tbPrice.Text = "";
-            tbVenueID.Text = "";
-            //res = true;
-            // return res;
         }
 
 
@@ -57,7 +64,9 @@ namespace BookiDesktop.GUIs {
             TablePackagesController tpCtrl = new TablePackagesController();
             if (TextBoxesHasValues()) {
                 if (create) {
-                    TablePackage newTablePackage = new TablePackage { Name = tbName.Text, Price = Int32.Parse(tbPrice.Text), VenueId = Int32.Parse(tbVenueID.Text) };
+                    Venue currVenue = (Venue)cbVenue.SelectedItem;
+                    Debug.WriteLine("VenueId from tablePackageGUI: " + currVenue.Id);
+                    TablePackage newTablePackage = new TablePackage { Name = tbName.Text, Price = Int32.Parse(tbPrice.Text), VenueId = currVenue.Id };
                     await tpCtrl.Create(newTablePackage);
                     this.Visible = false;
                 }/* else if (!create) {
@@ -71,16 +80,19 @@ namespace BookiDesktop.GUIs {
                     MessageBox.Show("Error...One or more fields are empty!"); ;
                 }
             }
-        }
 
+        }
             public bool TextBoxesHasValues() {
                 bool res = false;
-                if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbPrice.Text) && !string.IsNullOrWhiteSpace(tbVenueID.Text)) {
+                if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbPrice.Text)) {
                     res = true;
                 }
                 return res;
             }
-        }
+        
     }
+}
+
+    
 
 

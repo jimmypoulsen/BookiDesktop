@@ -203,7 +203,7 @@ namespace BookiDesktop {
 
             else if (nameOfFormOpen.Equals("TablePackagesGUI")) {
                 TablePackageGUI tablePackageGUI = new TablePackageGUI();
-                tablePackageGUI.Create();
+                tablePackageGUI.CreateAsync();
                 tablePackageGUI.Show();
             }
 

@@ -28,8 +28,10 @@ namespace BookiDesktop.GUIs {
             VenuesController vCtrl = new VenuesController();
             tablesGUI = TablesGUI.Instance;
             editedTable = await tCtrl.Get(tablesGUI.idFromTable);
+
             Venue venue = await vCtrl.Get(editedTable.VenueId);
             lblTitle.Text = "Edit Table";
+            create = false;
             BtnSaveChanges.Text = "Save changes";
             tbSeats.Text = "" + editedTable.NoOfSeats;
             tbName.Text = editedTable.Name;

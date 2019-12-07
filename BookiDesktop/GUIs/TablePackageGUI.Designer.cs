@@ -23,29 +23,19 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.lblBool = new System.Windows.Forms.Label();
             this.BtnSaveChanges = new System.Windows.Forms.Button();
-            this.tbVenueID = new System.Windows.Forms.TextBox();
-            this.lblVenueId = new System.Windows.Forms.Label();
+            this.lblVenue = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.cbVenue = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // lblBool
-            // 
-            this.lblBool.AutoSize = true;
-            this.lblBool.Location = new System.Drawing.Point(385, 19);
-            this.lblBool.Name = "lblBool";
-            this.lblBool.Size = new System.Drawing.Size(46, 17);
-            this.lblBool.TabIndex = 25;
-            this.lblBool.Text = "label1";
             // 
             // BtnSaveChanges
             // 
-            this.BtnSaveChanges.Location = new System.Drawing.Point(115, 277);
+            this.BtnSaveChanges.Location = new System.Drawing.Point(115, 268);
             this.BtnSaveChanges.Name = "BtnSaveChanges";
             this.BtnSaveChanges.Size = new System.Drawing.Size(275, 38);
             this.BtnSaveChanges.TabIndex = 24;
@@ -53,21 +43,14 @@
             this.BtnSaveChanges.UseVisualStyleBackColor = true;
             this.BtnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
-            // tbVenueID
+            // lblVenue
             // 
-            this.tbVenueID.Location = new System.Drawing.Point(118, 214);
-            this.tbVenueID.Name = "tbVenueID";
-            this.tbVenueID.Size = new System.Drawing.Size(270, 22);
-            this.tbVenueID.TabIndex = 23;
-            // 
-            // lblVenueId
-            // 
-            this.lblVenueId.AutoSize = true;
-            this.lblVenueId.Location = new System.Drawing.Point(115, 194);
-            this.lblVenueId.Name = "lblVenueId";
-            this.lblVenueId.Size = new System.Drawing.Size(62, 17);
-            this.lblVenueId.TabIndex = 22;
-            this.lblVenueId.Text = "VenueID";
+            this.lblVenue.AutoSize = true;
+            this.lblVenue.Location = new System.Drawing.Point(115, 194);
+            this.lblVenue.Name = "lblVenue";
+            this.lblVenue.Size = new System.Drawing.Size(49, 17);
+            this.lblVenue.TabIndex = 22;
+            this.lblVenue.Text = "Venue";
             // 
             // lblPrice
             // 
@@ -91,14 +74,14 @@
             // 
             this.tbPrice.Location = new System.Drawing.Point(116, 152);
             this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(271, 22);
+            this.tbPrice.Size = new System.Drawing.Size(274, 22);
             this.tbPrice.TabIndex = 15;
             // 
             // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(115, 97);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(271, 22);
+            this.tbName.Size = new System.Drawing.Size(275, 22);
             this.tbName.TabIndex = 14;
             // 
             // lblTitle
@@ -111,15 +94,22 @@
             this.lblTitle.TabIndex = 13;
             this.lblTitle.Text = "Edit Table Package";
             // 
+            // cbVenue
+            // 
+            this.cbVenue.FormattingEnabled = true;
+            this.cbVenue.Location = new System.Drawing.Point(115, 214);
+            this.cbVenue.Name = "cbVenue";
+            this.cbVenue.Size = new System.Drawing.Size(275, 24);
+            this.cbVenue.TabIndex = 26;
+            // 
             // TablePackageGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 362);
-            this.Controls.Add(this.lblBool);
+            this.Controls.Add(this.cbVenue);
             this.Controls.Add(this.BtnSaveChanges);
-            this.Controls.Add(this.tbVenueID);
-            this.Controls.Add(this.lblVenueId);
+            this.Controls.Add(this.lblVenue);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.tbPrice);
@@ -133,15 +123,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblBool;
         private System.Windows.Forms.Button BtnSaveChanges;
-        private System.Windows.Forms.TextBox tbVenueID;
-        private System.Windows.Forms.Label lblVenueId;
+        private System.Windows.Forms.Label lblVenue;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ComboBox cbVenue;
     }
 }
