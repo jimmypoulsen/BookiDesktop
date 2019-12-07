@@ -33,8 +33,9 @@ namespace BookiDesktop.GUIs {
 
         public async void AddDataToTable() {
             EmployeesController eCtrl = new EmployeesController();
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
             employeesGridView.UseWaitCursor = true;
-            //employeesGridView.DataSource = await eCtrl.Get();
+            employeesGridView.DataSource = await eCtrl.GetEmployees(dashboardGUI.EmployeeNo);
             employeesGridView.UseWaitCursor = false;
             //lblSelectedRow.Text = "";
             employeesGridView.ClearSelection();

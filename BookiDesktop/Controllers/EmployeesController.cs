@@ -13,6 +13,22 @@ namespace BookiDesktop.Controllers {
 
         private BaseController bCtrl;
 
+        public async Task<List<Employee>> Get() {
+            List<Employee> EmployeeInfo = new List<Employee>();
+            bCtrl = new BaseController();
+            using (var client = bCtrl.GetClient()) {
+
+                HttpResponseMessage Res = await client.GetAsync("employees");
+
+                if (Res.IsSuccessStatusCode) {
+                    var EmployeeResponse = Res.Content.ReadAsStringAsync().Result;
+
+                    EmployeeInfo = JsonConvert.DeserializeObject<List<Employee>>(EmployeeResponse);
+                }
+            }
+            return EmployeeInfo;
+        }
+
         public async Task<List<Employee>> Get(int id) {
             List<Employee> EmployeeInfo = new List<Employee>();
             bCtrl = new BaseController();
@@ -88,6 +104,34 @@ namespace BookiDesktop.Controllers {
             }
             return tablePackages;
         }
+
+        public async Task<List<Employee>> GetEmployees(int id) {
+            List<Employee> currEmployees = await Get();
+            List<Venue> venueInfo = await GetVenues(id);
+            List<Employee> employees = new List<Employee>();
+
+            List<int> venueIDs = new List<int>();
+            foreach (Venue venue in venueInfo) {
+                venueIDs.Add(venue.Id);
+            }
+
+
+            foreach (Employee employee in currEmployees) {
+                Debug.WriteLine("Iterating over all employees: " + employee.Id);
+                foreach (Venue venue1 in employee.Venues) {
+                    foreach (int i in venueIDs) {
+                        Debug.WriteLine("Iterating over all venues from empID - VenueID: " + i);
+                        if (venue1.Id.Equals(i)) {
+                            employees.Add(employee);
+                            Debug.WriteLine("Adding employee that matches with venueID - id: " + employee.Id);
+                        }
+                    }
+                   
+                }
+            }
+            return employees;
+        }
+
 
     }
 }

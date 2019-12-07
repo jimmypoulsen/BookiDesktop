@@ -121,6 +121,7 @@ namespace BookiDesktop {
             BtnVenues.BackColor = Color.White;
             BtnTables.BackColor = Color.White;
             BtnTablePackages.BackColor = Color.White;
+            BtnEmployees.BackColor = Color.White;
         }
 
         public void Nav(Form form, Panel panel) {
@@ -143,7 +144,9 @@ namespace BookiDesktop {
             lblNameOfFormOpen.Text = newTitle;
 
             ChangeButtons(newTitle.ToLower());
-            if (nameOfFormOpen.Equals("DashboardGUI") || nameOfFormOpen.Equals("VenuesGUI")) {
+            //if (nameOfFormOpen.Equals("DashboardGUI") || nameOfFormOpen.Equals("VenuesGUI")) {
+
+                if (nameOfFormOpen.Equals("DashboardGUI")) {
                 HideButtons();
             }
             else {
