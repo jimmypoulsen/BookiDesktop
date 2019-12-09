@@ -88,7 +88,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardGUI";
             this.Text = "DashboardGUI";
-            this.Load += new System.EventHandler(this.DashboardGUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

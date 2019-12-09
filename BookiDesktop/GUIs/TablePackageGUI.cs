@@ -17,10 +17,12 @@ namespace BookiDesktop.GUIs {
         private bool create;
         private TablePackage editedTablePackage;
         private TablePackagesGUI tablePackagesGUI;
+        private SessionsController sCtrl;
 
         public TablePackageGUI() {
             InitializeComponent();
             this.ActiveControl = BtnSaveChanges;
+            sCtrl = SessionsController.Instance;
         }
 
         public async void Edit() {
@@ -52,24 +54,24 @@ namespace BookiDesktop.GUIs {
             TablesController vCtrl = new TablesController();
             EmployeesController eCtrl = new EmployeesController();
             tablePackagesGUI = TablePackagesGUI.Instance;
-            DashboardGUI dashboardGUI = DashboardGUI.Instance;
-
             lblTitle.Text = "Create Table Package";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(dashboardGUI.EmployeeId);
+            List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
                 foreach (Venue v in venues) {
                     venuesList.Add(v);
                 }
             cbVenue.DataSource = venuesList;
             create = true;
             tbName.Text = "";
-            tbPrice.Text = ""; 
+            tbPrice.Text = "";
         }
 
 
         private async void BtnSaveChanges_Click(object sender, EventArgs e) {
             TablePackagesController tpCtrl = new TablePackagesController();
+            DashboardGUI dGUI = DashboardGUI.Instance;
+
             if (TextBoxesHasValues()) {
                 if (create) {
                     Venue currVenue = (Venue)cbVenue.SelectedItem;
@@ -90,8 +92,9 @@ namespace BookiDesktop.GUIs {
                     MessageBox.Show("Error...One or more fields are empty!"); ;
                 }
             }
-
+            dGUI.AddTablePackageStats();
         }
+
         public bool TextBoxesHasValues() {
             bool res = false;
             if (!string.IsNullOrWhiteSpace(tbName.Text) && !string.IsNullOrWhiteSpace(tbPrice.Text)) {

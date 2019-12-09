@@ -16,9 +16,12 @@ namespace BookiDesktop.GUIs {
         private bool create;
         private Venue editedVenue;
         private VenuesGUI venuesGUI;
+        private SessionsController sCtrl;
+
         public VenueGUI() {
             InitializeComponent();
             this.ActiveControl = BtnSaveChanges;
+            sCtrl = SessionsController.Instance;
         }
 
         public async void Edit() {
@@ -58,6 +61,8 @@ namespace BookiDesktop.GUIs {
 
         private async void BtnSaveChanges_Click(object sender, EventArgs e) {
             VenuesController vCtrl = new VenuesController();
+            DashboardGUI dGUI = DashboardGUI.Instance;
+
             if (TextBoxesHasValues()) { 
                 if (create) {
                         Venue newVenue = new Venue { Name = tbName.Text, Address = tbAddress.Text, Zip = Int32.Parse(tbZip.Text), City = tbCity.Text };
@@ -79,6 +84,7 @@ namespace BookiDesktop.GUIs {
             } else {
                     MessageBox.Show("Error...One or more fields are empty!"); ;
                 }
+            dGUI.AddVenueStats();
 
             }
         public bool TextBoxesHasValues() {

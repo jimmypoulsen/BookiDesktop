@@ -14,6 +14,7 @@ namespace BookiDesktop.GUIs {
     public partial class LoginGUI : Form {
         public LoginGUI() {
             InitializeComponent();
+            this.AcceptButton = BtnLogin;
         }
 
         private async void BtnLogin_ClickAsync(object sender, EventArgs e) {

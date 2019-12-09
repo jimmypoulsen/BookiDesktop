@@ -1,4 +1,5 @@
 ﻿using BookiDesktop.Controllers;
+using BookiDesktop.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,17 @@ namespace BookiDesktop {
 
         public int EmployeeId { get; set; }
         private static DashboardGUI instance = null;
+        private EmployeesController eCtrl;
+        private SessionsController sCtrl;
         
         public DashboardGUI() {
             InitializeComponent();
-            /*SessionsController sCtrl = SessionsController.Instance;
-            EmployeeId = sCtrl.currentlyLoggedIn.Id;*/
+            AddVenueStats();
+            AddEmployeeStats();
+            AddTableStats();
+            AddTablePackageStats();
+            sCtrl = SessionsController.Instance;
+            EmployeeId = sCtrl.EmployeeId;
         }
 
         public static DashboardGUI Instance {
@@ -30,10 +37,54 @@ namespace BookiDesktop {
             }
         }
 
-        private void DashboardGUI_Load(object sender, EventArgs e) {
 
+        public async void AddVenueStats() {
+            eCtrl = new EmployeesController();
+            List<Venue> venues = await eCtrl.GetVenues(EmployeeId);
+            int a = 0;
+            foreach (Venue v in venues) {
+                if (venues.Count > 0) {
+                    a++;
+                }
+            }
+            lblNoOfVenues.Text = "Number of Venues: " + a;
         }
 
+        public async void AddEmployeeStats() {
+            eCtrl = new EmployeesController();
+            List<Employee> employees = await eCtrl.GetEmployees(EmployeeId);
+            int b = 0;
+            foreach (Employee e in employees) {
+                if (employees.Count > 0) {
+                    b++;
+                }
+            }
+            lblNoOfEmployees.Text = "Number of Employees: " + b;
+        }
 
+        public async void AddTableStats() {
+            eCtrl = new EmployeesController();
+            List<Table> tables = await eCtrl.GetTables(EmployeeId);
+            int c = 0;
+            foreach (Table t in tables) {
+                if (tables.Count > 0) {
+                    c++;
+                }
+            }
+            lblNoOfTables.Text = "Number of Tables: " + c;
+        }
+
+        public async void AddTablePackageStats() {
+            eCtrl = new EmployeesController();
+            List<TablePackage> tablePackages = await eCtrl.GetTablePackages(EmployeeId);
+            int d = 0;
+            foreach (TablePackage tp in tablePackages) {
+                if (tablePackages.Count > 0) {
+                    d++;
+                }
+            }
+            lblNoOfTablePackages.Text = "Number of Table Packages: " + d;
+        }      
     }
 }
+

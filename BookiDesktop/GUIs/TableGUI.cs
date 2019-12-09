@@ -17,10 +17,12 @@ namespace BookiDesktop.GUIs {
         private bool create;
         private Table editedTable;
         private TablesGUI tablesGUI;
+        private SessionsController sCtrl;
+
         public TableGUI() {
             InitializeComponent();
             this.ActiveControl = BtnSaveChanges;
-
+            sCtrl = SessionsController.Instance;
         }
 
         public async void Edit() {
@@ -51,12 +53,11 @@ namespace BookiDesktop.GUIs {
             TablesController vCtrl = new TablesController();
             EmployeesController eCtrl = new EmployeesController();
             tablesGUI = TablesGUI.Instance;
-            DashboardGUI dashboardGUI = DashboardGUI.Instance;
 
             lblTitle.Text = "Create Table";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(dashboardGUI.EmployeeId);
+            List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
                 foreach (Venue v in venues) {
                     venuesList.Add(v);
                 }
@@ -69,6 +70,8 @@ namespace BookiDesktop.GUIs {
 
         private async void BtnSaveChanges_Click(object sender, EventArgs e) {
             TablesController tCtrl = new TablesController();
+            DashboardGUI dGUI = DashboardGUI.Instance;
+
             if (TextBoxesHasValues()) {
                 if (create) {
                     Venue currVenue = (Venue)cbVenueID.SelectedItem;
@@ -88,9 +91,8 @@ namespace BookiDesktop.GUIs {
             }
             else {
                 MessageBox.Show("Error...One or more fields are empty!"); ;
-
             }
-
+            dGUI.AddTableStats();
         }
 
         public bool TextBoxesHasValues() {
