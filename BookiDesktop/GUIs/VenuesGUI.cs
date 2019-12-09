@@ -33,12 +33,10 @@ namespace BookiDesktop {
         }
 
         public async void AddDataToTable() {
-            //VenuesController vCtrl = new VenuesController();
             EmployeesController eCtrl = new EmployeesController();
+            SessionsController sCtrl = SessionsController.Instance;
             venuesGridView.UseWaitCursor = true;
-            //venuesGridView.DataSource = await vCtrl.Get();
-            DashboardGUI dashboardGUI = DashboardGUI.Instance;
-            venuesGridView.DataSource = await eCtrl.GetVenues(dashboardGUI.EmployeeNo);
+            venuesGridView.DataSource = await eCtrl.GetVenues(sCtrl.EmployeeId);
             venuesGridView.UseWaitCursor = false;
             lblSelectedRow.Text = "";
             venuesGridView.ClearSelection();

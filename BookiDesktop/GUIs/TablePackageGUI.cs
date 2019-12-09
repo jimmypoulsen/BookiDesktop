@@ -57,7 +57,7 @@ namespace BookiDesktop.GUIs {
             lblTitle.Text = "Create Table Package";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(dashboardGUI.EmployeeNo);
+            List<Venue> venues = await eCtrl.GetVenues(dashboardGUI.EmployeeId);
                 foreach (Venue v in venues) {
                     venuesList.Add(v);
                 }

@@ -103,7 +103,6 @@ namespace BookiDesktop.Controllers {
                 venuesGUI.AddDataToTable();
                 return res;
             }
-
         }
 
     }

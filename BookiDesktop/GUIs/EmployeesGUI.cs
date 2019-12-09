@@ -12,14 +12,14 @@ using System.Windows.Forms;
 namespace BookiDesktop.GUIs {
     public partial class EmployeesGUI : Form {
 
-        public int idFromTable { get; set; }
+        public int IdFromTable { get; set; }
 
         private static EmployeesGUI instance = null;
 
         public EmployeesGUI() {
             InitializeComponent();
             AddDataToTable();
-            idFromTable = -1;
+            IdFromTable = -1;
         }
 
         public static EmployeesGUI Instance {
@@ -33,14 +33,25 @@ namespace BookiDesktop.GUIs {
 
         public async void AddDataToTable() {
             EmployeesController eCtrl = new EmployeesController();
-            DashboardGUI dashboardGUI = DashboardGUI.Instance;
+            SessionsController sCtrl = SessionsController.Instance;
             employeesGridView.UseWaitCursor = true;
-            employeesGridView.DataSource = await eCtrl.GetEmployees(dashboardGUI.EmployeeNo);
+            employeesGridView.DataSource = await eCtrl.GetEmployees(sCtrl.EmployeeId);
             employeesGridView.UseWaitCursor = false;
             //lblSelectedRow.Text = "";
             employeesGridView.ClearSelection();
             employeesGridView.CurrentCell = null;
         }
 
+        private void employeesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
+            {
+                if (employeesGridView.SelectedCells.Count > 0) {
+                    // If header is clicked - do nothing - prevents crash
+                    if (e.RowIndex == -1) return;
+                    int index = e.RowIndex;
+                    DataGridViewRow selectedRow = employeesGridView.Rows[index];
+                    IdFromTable = (int)selectedRow.Cells[0].Value;
+                }
+            }
+        }
     }
 }

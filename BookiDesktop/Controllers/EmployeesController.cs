@@ -1,4 +1,5 @@
-﻿using BookiDesktop.Models;
+﻿using BookiDesktop.GUIs;
+using BookiDesktop.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace BookiDesktop.Controllers {
     public class EmployeesController {
 
         private BaseController bCtrl;
+        private EmployeesGUI employeesGUI;
 
         public async Task<List<Employee>> Get() {
             List<Employee> EmployeeInfo = new List<Employee>();
@@ -29,8 +31,10 @@ namespace BookiDesktop.Controllers {
             return EmployeeInfo;
         }
 
-        public async Task<List<Employee>> Get(int id) {
+        // Changed this to return an employee an not a list...
+        public async Task<Employee> Get(int id) {
             List<Employee> EmployeeInfo = new List<Employee>();
+            Employee employee = null;
             bCtrl = new BaseController();
             using (var client = bCtrl.GetClient()) {
 
@@ -40,11 +44,11 @@ namespace BookiDesktop.Controllers {
                     var EmployeeResponse = Res.Content.ReadAsStringAsync().Result;
 
                     EmployeeInfo = JsonConvert.DeserializeObject<List<Employee>>(EmployeeResponse);
-                    Employee employee = EmployeeInfo[0];
+                    employee = EmployeeInfo[0];
                     IEnumerable<Venue> venues = employee.Venues;
                 }
             }
-            return EmployeeInfo;
+            return employee;
         }
 
         public async Task<List<Venue>> GetVenues(int id) {
@@ -117,19 +121,64 @@ namespace BookiDesktop.Controllers {
 
 
             foreach (Employee employee in currEmployees) {
-                Debug.WriteLine("Iterating over all employees: " + employee.Id);
                 foreach (Venue venue1 in employee.Venues) {
                     foreach (int i in venueIDs) {
-                        Debug.WriteLine("Iterating over all venues from empID - VenueID: " + i);
                         if (venue1.Id.Equals(i)) {
                             employees.Add(employee);
-                            Debug.WriteLine("Adding employee that matches with venueID - id: " + employee.Id);
                         }
                     }
                    
                 }
             }
             return employees;
+        }
+
+        public async Task<int> GetNewEmployeeNo() {
+            int i = 0;
+            List<int> employeeNumbers = new List<int>();
+            List<Employee> employees = await Get();
+            if (employees.Count > 0) {
+                foreach (Employee e in employees) {
+                    employeeNumbers.Add(e.EmployeeNo);
+                }
+            }
+            i = employeeNumbers.Max() + 1;
+            return i;
+        }
+
+        public async Task<bool> Create(Employee employee) {
+           employeesGUI = EmployeesGUI.Instance;
+            bool res = false;
+
+            bCtrl = new BaseController();
+            var root = new {
+                Employee = employee
+            };
+            var json = JsonConvert.SerializeObject(root);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            using (var client = bCtrl.GetClient()) {
+                var response = await client.PostAsync(bCtrl.BaseUrl + "employees/", data);
+                string result = response.Content.ReadAsStringAsync().Result;
+                res = true;
+            }
+            employeesGUI.AddDataToTable();
+
+            return res;
+        }
+
+        public async Task<bool> Delete(int id) {
+            employeesGUI = EmployeesGUI.Instance;
+            bool res = false;
+            bCtrl = new BaseController();
+            using (var client = bCtrl.GetClient()) {
+                var response = await client.DeleteAsync(bCtrl.BaseUrl + "employees/" + id);
+                string result = response.Content.ReadAsStringAsync().Result;
+                res = true;
+                employeesGUI.AddDataToTable();
+                return res;
+            }
+
         }
 
 

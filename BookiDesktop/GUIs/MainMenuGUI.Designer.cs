@@ -24,14 +24,15 @@
         /// </summary>
         private void InitializeComponent() {
             this.sidePanelNav = new System.Windows.Forms.Panel();
+            this.BtnEmployees = new System.Windows.Forms.Button();
             this.BtnTablePackages = new System.Windows.Forms.Button();
             this.BtnTables = new System.Windows.Forms.Button();
             this.BtnVenues = new System.Windows.Forms.Button();
             this.BtnDashboard = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.BtnLogOut = new System.Windows.Forms.Button();
             this.HeaderNavBar = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCurrentlyLoggedIn = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.content = new System.Windows.Forms.Panel();
             this.HeaderForContent = new System.Windows.Forms.Panel();
@@ -40,7 +41,7 @@
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnCreateNew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnEmployees = new System.Windows.Forms.Button();
+            this.lblCurrentlyLoggedInValues = new System.Windows.Forms.Label();
             this.sidePanelNav.SuspendLayout();
             this.HeaderNavBar.SuspendLayout();
             this.HeaderForContent.SuspendLayout();
@@ -59,6 +60,16 @@
             this.sidePanelNav.Name = "sidePanelNav";
             this.sidePanelNav.Size = new System.Drawing.Size(141, 562);
             this.sidePanelNav.TabIndex = 0;
+            // 
+            // BtnEmployees
+            // 
+            this.BtnEmployees.Location = new System.Drawing.Point(3, 156);
+            this.BtnEmployees.Name = "BtnEmployees";
+            this.BtnEmployees.Size = new System.Drawing.Size(132, 69);
+            this.BtnEmployees.TabIndex = 4;
+            this.BtnEmployees.Text = "Employees";
+            this.BtnEmployees.UseVisualStyleBackColor = true;
+            this.BtnEmployees.Click += new System.EventHandler(this.BtnEmployees_Click);
             // 
             // BtnTablePackages
             // 
@@ -100,22 +111,24 @@
             this.BtnDashboard.UseVisualStyleBackColor = true;
             this.BtnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
             // 
-            // button5
+            // BtnLogOut
             // 
-            this.button5.Location = new System.Drawing.Point(1210, -1);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(137, 69);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Log out";
-            this.button5.UseVisualStyleBackColor = true;
+            this.BtnLogOut.Location = new System.Drawing.Point(1210, -1);
+            this.BtnLogOut.Name = "BtnLogOut";
+            this.BtnLogOut.Size = new System.Drawing.Size(137, 69);
+            this.BtnLogOut.TabIndex = 4;
+            this.BtnLogOut.Text = "Log out";
+            this.BtnLogOut.UseVisualStyleBackColor = true;
+            this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
             // 
             // HeaderNavBar
             // 
             this.HeaderNavBar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.HeaderNavBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HeaderNavBar.Controls.Add(this.button5);
+            this.HeaderNavBar.Controls.Add(this.lblCurrentlyLoggedInValues);
+            this.HeaderNavBar.Controls.Add(this.BtnLogOut);
             this.HeaderNavBar.Controls.Add(this.button6);
-            this.HeaderNavBar.Controls.Add(this.label1);
+            this.HeaderNavBar.Controls.Add(this.lblCurrentlyLoggedIn);
             this.HeaderNavBar.Controls.Add(this.label2);
             this.HeaderNavBar.Location = new System.Drawing.Point(0, 0);
             this.HeaderNavBar.Name = "HeaderNavBar";
@@ -131,17 +144,16 @@
             this.button6.Text = "Settings";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblCurrentlyLoggedIn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(438, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 19);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Currently logged in as:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblCurrentlyLoggedIn.AutoSize = true;
+            this.lblCurrentlyLoggedIn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentlyLoggedIn.ForeColor = System.Drawing.Color.White;
+            this.lblCurrentlyLoggedIn.Location = new System.Drawing.Point(505, 12);
+            this.lblCurrentlyLoggedIn.Name = "lblCurrentlyLoggedIn";
+            this.lblCurrentlyLoggedIn.Size = new System.Drawing.Size(147, 19);
+            this.lblCurrentlyLoggedIn.TabIndex = 6;
+            this.lblCurrentlyLoggedIn.Text = "Currently logged in as:";
             // 
             // label2
             // 
@@ -153,7 +165,6 @@
             this.label2.Size = new System.Drawing.Size(228, 28);
             this.label2.TabIndex = 8;
             this.label2.Text = "Booki - Administration";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // content
             // 
@@ -224,15 +235,13 @@
             this.panel3.Size = new System.Drawing.Size(1346, 29);
             this.panel3.TabIndex = 8;
             // 
-            // BtnEmployees
+            // lblCurrentlyLoggedInValues
             // 
-            this.BtnEmployees.Location = new System.Drawing.Point(3, 156);
-            this.BtnEmployees.Name = "BtnEmployees";
-            this.BtnEmployees.Size = new System.Drawing.Size(132, 69);
-            this.BtnEmployees.TabIndex = 4;
-            this.BtnEmployees.Text = "Employees";
-            this.BtnEmployees.UseVisualStyleBackColor = true;
-            this.BtnEmployees.Click += new System.EventHandler(this.BtnEmployees_Click);
+            this.lblCurrentlyLoggedInValues.AutoSize = true;
+            this.lblCurrentlyLoggedInValues.Location = new System.Drawing.Point(553, 31);
+            this.lblCurrentlyLoggedInValues.Name = "lblCurrentlyLoggedInValues";
+            this.lblCurrentlyLoggedInValues.Size = new System.Drawing.Size(0, 17);
+            this.lblCurrentlyLoggedInValues.TabIndex = 9;
             // 
             // MainMenuGUI
             // 
@@ -262,9 +271,8 @@
         private System.Windows.Forms.Button BtnVenues;
         private System.Windows.Forms.Button BtnDashboard;
         private System.Windows.Forms.Button BtnTablePackages;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button BtnLogOut;
         private System.Windows.Forms.Panel HeaderNavBar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel content;
@@ -275,6 +283,8 @@
         private System.Windows.Forms.Label lblNameOfFormOpen;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnEmployees;
+        public System.Windows.Forms.Label lblCurrentlyLoggedIn;
+        private System.Windows.Forms.Label lblCurrentlyLoggedInValues;
     }
 }
 

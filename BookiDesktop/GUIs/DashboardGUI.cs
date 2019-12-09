@@ -12,11 +12,13 @@ using System.Windows.Forms;
 namespace BookiDesktop {
     public partial class DashboardGUI : Form {
 
-        public int EmployeeNo { get; set; }
+        public int EmployeeId { get; set; }
         private static DashboardGUI instance = null;
         
         public DashboardGUI() {
             InitializeComponent();
+            /*SessionsController sCtrl = SessionsController.Instance;
+            EmployeeId = sCtrl.currentlyLoggedIn.Id;*/
         }
 
         public static DashboardGUI Instance {
@@ -33,7 +35,7 @@ namespace BookiDesktop {
         }
 
         private void BtnFindVenues_Click(object sender, EventArgs e) {
-            EmployeeNo = (Int32.Parse(tbEmployeeNo.Text));
+            EmployeeId = (Int32.Parse(tbEmployeeNo.Text));
             lblDataFetched.Text = "Data found for employee: " + tbEmployeeNo.Text;
         }
 

@@ -59,8 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\SessionsController.cs" />
     <Compile Include="Controllers\TablePackagesController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
+    <Compile Include="Controllers\VenueEmployeesController.cs" />
     <Compile Include="Controllers\VenuesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="GUIs\DashboardGUI.cs">
@@ -69,11 +71,23 @@
     <Compile Include="GUIs\DashboardGUI.Designer.cs">
       <DependentUpon>DashboardGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIs\EmployeeGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\EmployeeGUI.Designer.cs">
+      <DependentUpon>EmployeeGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIs\EmployeesGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUIs\EmployeesGUI.Designer.cs">
       <DependentUpon>EmployeesGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIs\LoginGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\LoginGUI.Designer.cs">
+      <DependentUpon>LoginGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIs\TableGUI.cs">
       <SubType>Form</SubType>
@@ -100,6 +114,8 @@
       <DependentUpon>MainMenuGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIs\Program.cs" />
+    <Compile Include="Helpers\HashingHelper.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\TablePackage.cs" />
@@ -126,8 +142,14 @@
     <EmbeddedResource Include="GUIs\DashboardGUI.resx">
       <DependentUpon>DashboardGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\EmployeeGUI.resx">
+      <DependentUpon>EmployeeGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIs\EmployeesGUI.resx">
       <DependentUpon>EmployeesGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\LoginGUI.resx">
+      <DependentUpon>LoginGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\TableGUI.resx">
       <DependentUpon>TableGUI.cs</DependentUpon>

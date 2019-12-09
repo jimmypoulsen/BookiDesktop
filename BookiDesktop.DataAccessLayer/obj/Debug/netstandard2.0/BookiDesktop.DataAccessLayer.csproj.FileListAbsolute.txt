@@ -1,0 +1,8 @@
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\bin\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.deps.json
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\bin\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.dll
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\bin\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.pdb
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\obj\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\obj\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\obj\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.AssemblyInfo.cs
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\obj\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.dll
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop.DataAccessLayer\obj\Debug\netstandard2.0\BookiDesktop.DataAccessLayer.pdb

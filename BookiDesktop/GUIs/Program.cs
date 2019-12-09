@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookiDesktop.GUIs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,9 @@ namespace BookiDesktop {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenuGUI());
+            //Application.Run(new MainMenuGUI());
+            Application.Run(new LoginGUI());
+
         }
     }
 }

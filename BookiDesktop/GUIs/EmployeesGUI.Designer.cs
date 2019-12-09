@@ -37,6 +37,7 @@
             this.employeesGridView.RowTemplate.Height = 24;
             this.employeesGridView.Size = new System.Drawing.Size(784, 391);
             this.employeesGridView.TabIndex = 0;
+            this.employeesGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeesGridView_CellClick);
             // 
             // lblTitle
             // 

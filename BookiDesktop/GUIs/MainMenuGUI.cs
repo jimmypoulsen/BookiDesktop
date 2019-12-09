@@ -1,5 +1,6 @@
 ﻿using BookiDesktop.Controllers;
 using BookiDesktop.GUIs;
+using BookiDesktop.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,13 +37,6 @@ namespace BookiDesktop {
             }
         }
 
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-
-        }
 
         private void BtnDashboard_Click(object sender, EventArgs e) {
             //DashboardGUI dashboardGUI = new DashboardGUI();
@@ -144,9 +138,9 @@ namespace BookiDesktop {
             lblNameOfFormOpen.Text = newTitle;
 
             ChangeButtons(newTitle.ToLower());
-            //if (nameOfFormOpen.Equals("DashboardGUI") || nameOfFormOpen.Equals("VenuesGUI")) {
+            if (nameOfFormOpen.Equals("DashboardGUI") || nameOfFormOpen.Equals("VenuesGUI")) {
 
-                if (nameOfFormOpen.Equals("DashboardGUI")) {
+                //if (nameOfFormOpen.Equals("DashboardGUI")) {
                 HideButtons();
             }
             else {
@@ -177,7 +171,6 @@ namespace BookiDesktop {
                 VenueGUI venueGUI = new VenueGUI();
                 venueGUI.Edit();
                 venueGUI.Show();
-                Debug.WriteLine("IdFromVenuesTable --> " + VenuesGUI.Instance.idFromTable);
 
             }
 
@@ -185,7 +178,6 @@ namespace BookiDesktop {
                 TableGUI tableGUI = new TableGUI();
                 tableGUI.Edit();
                 tableGUI.Show();
-                Debug.WriteLine("IdFromTablesTable --> " + TablesGUI.Instance.idFromTable);
 
             }
 
@@ -193,8 +185,14 @@ namespace BookiDesktop {
                 TablePackageGUI tablePackageGUI = new TablePackageGUI();
                 tablePackageGUI.Edit();
                 tablePackageGUI.Show();
-                Debug.WriteLine("IdFromTablePackagesTable --> " + TablePackagesGUI.Instance.idFromTable);
             }
+
+            else if (nameOfFormOpen.Equals("EmployeesGUI") && EmployeesGUI.Instance.IdFromTable != -1) {
+                EmployeeGUI employeeGUI = new EmployeeGUI();
+                employeeGUI.Edit();
+                employeeGUI.Show();
+            }
+
             else {
                 MessageBox.Show("Please select a " + newTitle + " from the list");
             }
@@ -216,6 +214,12 @@ namespace BookiDesktop {
                 TablePackageGUI tablePackageGUI = new TablePackageGUI();
                 tablePackageGUI.Create();
                 tablePackageGUI.Show();
+            }
+
+            else if (nameOfFormOpen.Equals("EmployeesGUI")) {
+                EmployeeGUI employeeGUI = new EmployeeGUI();
+                await employeeGUI.Create();
+                employeeGUI.Show();
             }
 
         }
@@ -255,13 +259,35 @@ namespace BookiDesktop {
                 }
             }
 
+            else if (nameOfFormOpen.Equals("EmployeesGUI") && EmployeesGUI.Instance.IdFromTable != -1) {
+                try {
+                    EmployeesController eCtrl = new EmployeesController();
+                    EmployeesGUI.Instance.UseWaitCursor = true;
+                    await eCtrl.Delete(EmployeesGUI.Instance.IdFromTable);
+                    EmployeesGUI.Instance.UseWaitCursor = false;
+                }
+                catch (Exception) {
+                    MessageBox.Show("Error...occured");
+                }
+            }
+
             else {
                 MessageBox.Show("Please select a " + newTitle + " from the list");
             }
 
         }
 
-        
+        private void BtnLogOut_Click(object sender, EventArgs e) {
+            SessionsController sCtrl = new SessionsController();
+            sCtrl.LogOut();
+        }
+
+        // ændre til employee
+        public void setCurrentlyLoggedIn(Employee employee) {
+            lblCurrentlyLoggedInValues.Text = employee.Name + " - " + employee.Title;
+            BtnLogOut.Text = "Log out" + "\n" + "(" + employee.Name + ")";
+        }
+
     } 
     
 }
