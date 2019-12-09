@@ -24,49 +24,36 @@
         /// </summary>
         private void InitializeComponent() {
             this.employeesGridView = new System.Windows.Forms.DataGridView();
-            this.lblTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.employeesGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // employeesGridView
             // 
             this.employeesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeesGridView.Location = new System.Drawing.Point(7, 52);
+            this.employeesGridView.Location = new System.Drawing.Point(12, 12);
             this.employeesGridView.Name = "employeesGridView";
             this.employeesGridView.RowHeadersWidth = 51;
             this.employeesGridView.RowTemplate.Height = 24;
-            this.employeesGridView.Size = new System.Drawing.Size(784, 391);
+            this.employeesGridView.Size = new System.Drawing.Size(1176, 476);
             this.employeesGridView.TabIndex = 0;
             this.employeesGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeesGridView_CellClick);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(237, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(101, 17);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "EmployeesGUI";
             // 
             // EmployeesGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblTitle);
+            this.ClientSize = new System.Drawing.Size(1200, 500);
             this.Controls.Add(this.employeesGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeesGUI";
             this.Text = "EmployeesGUI";
             ((System.ComponentModel.ISupportInitialize)(this.employeesGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView employeesGridView;
-        private System.Windows.Forms.Label lblTitle;
     }
 }

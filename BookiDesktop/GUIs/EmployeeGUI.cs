@@ -40,6 +40,7 @@ namespace BookiDesktop.GUIs {
             tbPassword.Text = editedEmployee.Password;
             lblEmployeeNo.Show();
             tbEmployeeNo.Show();
+            tbEmployeeNo.Enabled = false;
             tbEmployeeNo.Text = "" + editedEmployee.EmployeeNo;
             tbEmployeeTitle.Text = editedEmployee.Title;
             

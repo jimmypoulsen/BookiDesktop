@@ -38,7 +38,6 @@ namespace BookiDesktop {
             venuesGridView.UseWaitCursor = true;
             venuesGridView.DataSource = await eCtrl.GetVenues(sCtrl.EmployeeId);
             venuesGridView.UseWaitCursor = false;
-            lblSelectedRow.Text = "";
             venuesGridView.ClearSelection();
             venuesGridView.CurrentCell = null;
         }
@@ -56,8 +55,6 @@ namespace BookiDesktop {
                     int index = e.RowIndex;
                     DataGridViewRow selectedRow = venuesGridView.Rows[index];
                     idFromTable = (int) selectedRow.Cells[0].Value;
-                    lblSelectedRow.Text = "Selected row: " + idFromTable;
-
                 }
             }
         }

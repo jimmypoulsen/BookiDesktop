@@ -34,10 +34,6 @@ namespace BookiDesktop {
 
         }
 
-        private void BtnFindVenues_Click(object sender, EventArgs e) {
-            EmployeeId = (Int32.Parse(tbEmployeeNo.Text));
-            lblDataFetched.Text = "Data found for employee: " + tbEmployeeNo.Text;
-        }
 
     }
 }

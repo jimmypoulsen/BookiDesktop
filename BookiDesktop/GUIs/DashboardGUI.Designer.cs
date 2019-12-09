@@ -23,55 +23,68 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.tbEmployeeNo = new System.Windows.Forms.TextBox();
-            this.lblEmployeeNo = new System.Windows.Forms.Label();
-            this.BtnSearch = new System.Windows.Forms.Button();
-            this.lblDataFetched = new System.Windows.Forms.Label();
+            this.lblNoOfVenues = new System.Windows.Forms.Label();
+            this.lblNoOfEmployees = new System.Windows.Forms.Label();
+            this.lblNoOfTables = new System.Windows.Forms.Label();
+            this.lblNoOfTablePackages = new System.Windows.Forms.Label();
+            this.lblNoOfReservations = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // tbEmployeeNo
+            // lblNoOfVenues
             // 
-            this.tbEmployeeNo.Location = new System.Drawing.Point(289, 29);
-            this.tbEmployeeNo.Name = "tbEmployeeNo";
-            this.tbEmployeeNo.Size = new System.Drawing.Size(156, 22);
-            this.tbEmployeeNo.TabIndex = 2;
+            this.lblNoOfVenues.AutoSize = true;
+            this.lblNoOfVenues.Location = new System.Drawing.Point(93, 57);
+            this.lblNoOfVenues.Name = "lblNoOfVenues";
+            this.lblNoOfVenues.Size = new System.Drawing.Size(130, 17);
+            this.lblNoOfVenues.TabIndex = 0;
+            this.lblNoOfVenues.Text = "Number of Venues:";
             // 
-            // lblEmployeeNo
+            // lblNoOfEmployees
             // 
-            this.lblEmployeeNo.AutoSize = true;
-            this.lblEmployeeNo.Location = new System.Drawing.Point(286, 9);
-            this.lblEmployeeNo.Name = "lblEmployeeNo";
-            this.lblEmployeeNo.Size = new System.Drawing.Size(159, 17);
-            this.lblEmployeeNo.TabIndex = 3;
-            this.lblEmployeeNo.Text = "Insert employeeNo here";
+            this.lblNoOfEmployees.AutoSize = true;
+            this.lblNoOfEmployees.Location = new System.Drawing.Point(512, 57);
+            this.lblNoOfEmployees.Name = "lblNoOfEmployees";
+            this.lblNoOfEmployees.Size = new System.Drawing.Size(147, 17);
+            this.lblNoOfEmployees.TabIndex = 1;
+            this.lblNoOfEmployees.Text = "Number of Employees";
             // 
-            // BtnSearch
+            // lblNoOfTables
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(451, 12);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(156, 39);
-            this.BtnSearch.TabIndex = 4;
-            this.BtnSearch.Text = "Search";
-            this.BtnSearch.UseVisualStyleBackColor = true;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnFindVenues_Click);
+            this.lblNoOfTables.AutoSize = true;
+            this.lblNoOfTables.Location = new System.Drawing.Point(93, 190);
+            this.lblNoOfTables.Name = "lblNoOfTables";
+            this.lblNoOfTables.Size = new System.Drawing.Size(121, 17);
+            this.lblNoOfTables.TabIndex = 2;
+            this.lblNoOfTables.Text = "Number of Tables";
             // 
-            // lblDataFetched
+            // lblNoOfTablePackages
             // 
-            this.lblDataFetched.AutoSize = true;
-            this.lblDataFetched.Location = new System.Drawing.Point(289, 72);
-            this.lblDataFetched.Name = "lblDataFetched";
-            this.lblDataFetched.Size = new System.Drawing.Size(0, 17);
-            this.lblDataFetched.TabIndex = 5;
+            this.lblNoOfTablePackages.AutoSize = true;
+            this.lblNoOfTablePackages.Location = new System.Drawing.Point(512, 190);
+            this.lblNoOfTablePackages.Name = "lblNoOfTablePackages";
+            this.lblNoOfTablePackages.Size = new System.Drawing.Size(180, 17);
+            this.lblNoOfTablePackages.TabIndex = 3;
+            this.lblNoOfTablePackages.Text = "Number of Table Packages";
+            // 
+            // lblNoOfReservations
+            // 
+            this.lblNoOfReservations.AutoSize = true;
+            this.lblNoOfReservations.Location = new System.Drawing.Point(296, 324);
+            this.lblNoOfReservations.Name = "lblNoOfReservations";
+            this.lblNoOfReservations.Size = new System.Drawing.Size(161, 17);
+            this.lblNoOfReservations.TabIndex = 4;
+            this.lblNoOfReservations.Text = "Number of Reservations";
             // 
             // DashboardGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblDataFetched);
-            this.Controls.Add(this.BtnSearch);
-            this.Controls.Add(this.lblEmployeeNo);
-            this.Controls.Add(this.tbEmployeeNo);
+            this.Controls.Add(this.lblNoOfReservations);
+            this.Controls.Add(this.lblNoOfTablePackages);
+            this.Controls.Add(this.lblNoOfTables);
+            this.Controls.Add(this.lblNoOfEmployees);
+            this.Controls.Add(this.lblNoOfVenues);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardGUI";
             this.Text = "DashboardGUI";
@@ -82,9 +95,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbEmployeeNo;
-        private System.Windows.Forms.Label lblEmployeeNo;
-        private System.Windows.Forms.Button BtnSearch;
-        private System.Windows.Forms.Label lblDataFetched;
+
+        private System.Windows.Forms.Label lblNoOfVenues;
+        private System.Windows.Forms.Label lblNoOfEmployees;
+        private System.Windows.Forms.Label lblNoOfTables;
+        private System.Windows.Forms.Label lblNoOfTablePackages;
+        private System.Windows.Forms.Label lblNoOfReservations;
     }
 }

@@ -37,7 +37,6 @@ namespace BookiDesktop {
             tablePackagesGridView.UseWaitCursor = true;
             tablePackagesGridView.DataSource = await eCtrl.GetTablePackages(sCtrl.EmployeeId);
             tablePackagesGridView.UseWaitCursor = false;
-            lblSelectedRow.Text = "";
             tablePackagesGridView.ClearSelection();
             tablePackagesGridView.CurrentCell = null;
 
@@ -51,8 +50,6 @@ namespace BookiDesktop {
                     int index = e.RowIndex;
                     DataGridViewRow selectedRow = tablePackagesGridView.Rows[index];
                     idFromTable = (int)selectedRow.Cells[0].Value;
-                    lblSelectedRow.Text = "Selected row: " + idFromTable;
-
                 }
             }
         }
