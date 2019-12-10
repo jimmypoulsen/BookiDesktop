@@ -48,6 +48,10 @@ namespace BookiDesktop {
             tablesGridView.CurrentCell = null;
         }
 
+        public void DeleteDataFromTable() {
+            tablesGridView.DataSource = null;
+        }
+
         private void tablesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (tablesGridView.SelectedCells.Count > 0) {

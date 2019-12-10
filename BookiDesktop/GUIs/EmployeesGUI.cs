@@ -47,6 +47,10 @@ namespace BookiDesktop.GUIs {
             employeesGridView.CurrentCell = null;
         }
 
+        public void DeleteDataFromTable() {
+            employeesGridView.DataSource = null;
+        }
+
         private void employeesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
             {
                 if (employeesGridView.SelectedCells.Count > 0) {

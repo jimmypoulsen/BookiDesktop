@@ -47,6 +47,10 @@ namespace BookiDesktop {
             venuesGridView.CurrentCell = null;
         }
 
+        public void DeleteDataFromTable() {
+            venuesGridView.DataSource = null;
+        }
+
         public void RefreshDataGrid() {
             venuesGridView.Update();
             venuesGridView.Refresh();

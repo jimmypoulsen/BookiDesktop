@@ -20,12 +20,7 @@ namespace BookiDesktop {
         
         public DashboardGUI() {
             InitializeComponent();
-            AddVenueStats();
-            AddEmployeeStats();
-            AddTableStats();
-            AddTablePackageStats();
-            sCtrl = SessionsController.Instance;
-            EmployeeId = sCtrl.EmployeeId;
+            AddAllStats();
         }
 
         public static DashboardGUI Instance {
@@ -37,6 +32,14 @@ namespace BookiDesktop {
             }
         }
 
+        public void AddAllStats() {
+            sCtrl = SessionsController.Instance;
+            EmployeeId = sCtrl.EmployeeId;
+            AddVenueStats();
+            AddEmployeeStats();
+            AddTableStats();
+            AddTablePackageStats();
+        }
 
         public async void AddVenueStats() {
             eCtrl = new EmployeesController();

@@ -37,9 +37,16 @@ namespace BookiDesktop {
             }
         }
 
+        public void SetStartupView() {
+            DashboardGUI dashboardGUI = DashboardGUI.Instance;
+            Nav(dashboardGUI, content);
+            RecolorButtons();
+            BtnDashboard.BackColor = Color.DarkGray;
+            dashboardGUI.AddAllStats();
+        }
+
 
         private void BtnDashboard_Click(object sender, EventArgs e) {
-            //DashboardGUI dashboardGUI = new DashboardGUI();
             DashboardGUI dashboardGUI = DashboardGUI.Instance;
             Nav(dashboardGUI, content);
             RecolorButtons();
@@ -282,7 +289,6 @@ namespace BookiDesktop {
             sCtrl.LogOut();
         }
 
-        // ændre til employee
         public void setCurrentlyLoggedIn(Employee employee) {
             lblCurrentlyLoggedInValues.Text = employee.Name + " - " + employee.Title;
             BtnLogOut.Text = "Log out" + "\n" + "(" + employee.Name + ")";

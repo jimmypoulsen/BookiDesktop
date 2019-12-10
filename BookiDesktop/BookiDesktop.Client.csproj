@@ -114,7 +114,6 @@
       <DependentUpon>MainMenuGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIs\Program.cs" />
-    <Compile Include="Helpers\CheckServiceConnection.cs" />
     <Compile Include="Helpers\HashingHelper.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />

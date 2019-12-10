@@ -53,7 +53,6 @@ namespace BookiDesktop.Controllers {
                     if (response.IsSuccessStatusCode && EmployeeId != -1) {
                         valid = true;
                         await CurrentlyLoggedInAsync(EmployeeId);
-                        
                     }
                 }
             }
@@ -61,10 +60,30 @@ namespace BookiDesktop.Controllers {
          }
 
         public void LogOut() {
-            MainMenuGUI mmGUI = MainMenuGUI.Instance;
+            MainMenuGUI mmGUI = MainMenuGUI.Instance;   
             LoginGUI lGUI = new LoginGUI();
             mmGUI.Hide();
             lGUI.Show();
+            mmGUI = null;
+            CleanSession();
+
+        }
+
+        public void CleanSession() {
+            DashboardGUI dGUI = DashboardGUI.Instance;
+            VenuesGUI vGUI = VenuesGUI.Instance;
+            EmployeesGUI eGUI = EmployeesGUI.Instance;
+            TablesGUI tGUI = TablesGUI.Instance;
+            TablePackagesGUI tpGUI = TablePackagesGUI.Instance;
+
+            vGUI.DeleteDataFromTable();
+            eGUI.DeleteDataFromTable();
+            tGUI.DeleteDataFromTable();
+            tpGUI.DeleteDataFromTable();
+            vGUI.DeleteDataFromTable();
+
+            dGUI = null;
+
         }
 
         public async Task CurrentlyLoggedInAsync(int EmployeeId) {

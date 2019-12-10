@@ -44,7 +44,10 @@ namespace BookiDesktop {
             tablePackagesGridView.UseWaitCursor = false;
             tablePackagesGridView.ClearSelection();
             tablePackagesGridView.CurrentCell = null;
+        }
 
+        public void DeleteDataFromTable() {
+            tablePackagesGridView.DataSource = null;
         }
 
         private void tablePackagesGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
