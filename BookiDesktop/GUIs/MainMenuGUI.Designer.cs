@@ -240,7 +240,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.GrayText;
             this.panel3.Location = new System.Drawing.Point(0, 628);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1348, 29);
+            this.panel3.Size = new System.Drawing.Size(1352, 36);
             this.panel3.TabIndex = 8;
             // 
             // MainMenuGUI

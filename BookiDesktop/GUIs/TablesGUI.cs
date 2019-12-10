@@ -38,7 +38,11 @@ namespace BookiDesktop {
             EmployeesController eCtrl = new EmployeesController();
             SessionsController sCtrl = SessionsController.Instance;
             tablesGridView.UseWaitCursor = true;
-            tablesGridView.DataSource = await eCtrl.GetTables(sCtrl.EmployeeId);
+            try {
+                tablesGridView.DataSource = await eCtrl.GetTables(sCtrl.EmployeeId);
+            } catch(Exception) {
+                MessageBox.Show("No connection to service");
+            }
             tablesGridView.UseWaitCursor = false;
             tablesGridView.ClearSelection();
             tablesGridView.CurrentCell = null;

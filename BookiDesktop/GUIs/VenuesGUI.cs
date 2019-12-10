@@ -36,7 +36,12 @@ namespace BookiDesktop {
             EmployeesController eCtrl = new EmployeesController();
             SessionsController sCtrl = SessionsController.Instance;
             venuesGridView.UseWaitCursor = true;
-            venuesGridView.DataSource = await eCtrl.GetVenues(sCtrl.EmployeeId);
+            try {
+                venuesGridView.DataSource = await eCtrl.GetVenues(sCtrl.EmployeeId);
+            }
+            catch (Exception) {
+                MessageBox.Show("No connection to service");
+            }
             venuesGridView.UseWaitCursor = false;
             venuesGridView.ClearSelection();
             venuesGridView.CurrentCell = null;

@@ -29,22 +29,28 @@ namespace BookiDesktop.GUIs {
             TablesController tCtrl = new TablesController();
             VenuesController vCtrl = new VenuesController();
             tablesGUI = TablesGUI.Instance;
-            editedTable = await tCtrl.Get(tablesGUI.idFromTable);
+            Venue venue = null;
+            try {
+                // Finding venue from venueID on table and adding it to combobox.
+                editedTable = await tCtrl.Get(tablesGUI.idFromTable);
+                venue = await vCtrl.Get(editedTable.VenueId);
+                // Creating a list because combobox demands it.
+                var venuesList = new List<Venue>();
+                venuesList.Add(venue);
 
-            // Finding venue from venueID on table and adding it to combobox.
-            Venue venue = await vCtrl.Get(editedTable.VenueId);
+                lblTitle.Text = "Edit Table";
+                create = false;
+                BtnSaveChanges.Text = "Save changes";
+                tbSeats.Text = "" + editedTable.NoOfSeats;
+                tbName.Text = editedTable.Name;
 
-            // Creating a list because combobox demands it.
-            var venuesList = new List<Venue>();
-            venuesList.Add(venue);
+                cbVenueID.DataSource = venuesList;
+            }
+            catch (Exception) {
+                MessageBox.Show("No connection to service");
+                this.Visible = false;
+            }
 
-            lblTitle.Text = "Edit Table";
-            create = false;
-            BtnSaveChanges.Text = "Save changes";
-            tbSeats.Text = "" + editedTable.NoOfSeats;
-            tbName.Text = editedTable.Name;
-
-            cbVenueID.DataSource = venuesList;
             // Resetting idFromTable to remove possibility to show other employees tables
             tablesGUI.idFromTable = -1;
         }

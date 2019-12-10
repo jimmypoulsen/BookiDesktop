@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookiDesktop.Properties;
+using BookiDesktop.Helpers;
 
 namespace BookiDesktop.GUIs {
     public partial class LoginGUI : Form {
@@ -17,7 +18,6 @@ namespace BookiDesktop.GUIs {
             InitializeComponent();
             this.AcceptButton = BtnLogin;
         }
-
 
         private async void BtnLogin_ClickAsync(object sender, EventArgs e) {
             //SessionsController sCtrl = new SessionsController();
@@ -29,17 +29,22 @@ namespace BookiDesktop.GUIs {
             Employee res = new Employee();
             res.Email = email;
             res.Password = password;
-
-            if (!tbEmail.Text.Equals("") && !tbPassword.Text.Equals("") && await sCtrl.Login(res)) {
-                MessageBox.Show("Succesfully logged in");
-                MainMenuGUI mmGUI = MainMenuGUI.Instance;
-                this.Visible = false;
-                mmGUI.Show();
+            try {
+                if (!tbEmail.Text.Equals("") && !tbPassword.Text.Equals("") && await sCtrl.Login(res)) {
+                    MessageBox.Show("Succesfully logged in");
+                    MainMenuGUI mmGUI = MainMenuGUI.Instance;
+                    this.Visible = false;
+                    mmGUI.Show();
+                }
+                else {
+                    MessageBox.Show("Email or password invalid");
+                    tbEmail.Text = "";
+                    tbPassword.Text = "";
+                }
             }
-            else {
-                MessageBox.Show("Email or password invalid");
-                tbEmail.Text = "";
-                tbPassword.Text = "";
+            catch(Exception) {
+               
+                MessageBox.Show("No connection to service");
             }
             
         }

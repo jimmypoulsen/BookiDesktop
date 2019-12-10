@@ -46,8 +46,8 @@ namespace BookiDesktop.Controllers {
                     try {
                         EmployeeId = Int32.Parse(response.Content.ReadAsStringAsync().Result);
                     }
-                    catch {
-                        Exception e;
+                    catch(Exception) {
+                        
                     }
 
                     if (response.IsSuccessStatusCode && EmployeeId != -1) {

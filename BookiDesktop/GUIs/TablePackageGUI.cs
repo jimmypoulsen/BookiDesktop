@@ -29,22 +29,29 @@ namespace BookiDesktop.GUIs {
             TablePackagesController tpCtrl = new TablePackagesController();
             VenuesController vCtrl = new VenuesController();
             tablePackagesGUI = TablePackagesGUI.Instance;
-            editedTablePackage = await tpCtrl.Get(tablePackagesGUI.idFromTable);
 
-            // Finding venue from venueID on table and adding it to combobox.
-            Venue venue = await vCtrl.Get(editedTablePackage.VenueId);
+            try {
+                editedTablePackage = await tpCtrl.Get(tablePackagesGUI.idFromTable);
 
-            // Creating a list because combobox demands it.
-            var venuesList = new List<Venue>();
-            venuesList.Add(venue);
+                // Finding venue from venueID on table and adding it to combobox.
+                Venue venue = await vCtrl.Get(editedTablePackage.VenueId);
 
-            lblTitle.Text = "Edit Table Package";
-            create = false;
-            BtnSaveChanges.Text = "Save changes";
-            tbName.Text = editedTablePackage.Name;
-            tbPrice.Text = "" + editedTablePackage.Price;
+                // Creating a list because combobox demands it.
+                var venuesList = new List<Venue>();
+                venuesList.Add(venue);
 
-            cbVenue.DataSource = venuesList;
+                lblTitle.Text = "Edit Table Package";
+                create = false;
+                BtnSaveChanges.Text = "Save changes";
+                tbName.Text = editedTablePackage.Name;
+                tbPrice.Text = "" + editedTablePackage.Price;
+
+                cbVenue.DataSource = venuesList;
+            }
+            catch(Exception) {
+                MessageBox.Show("No connection to service");
+                this.Visible = false;
+            }
 
             // Resetting idFromTable to remove possibility to show other employees tables
             tablePackagesGUI.idFromTable = -1;

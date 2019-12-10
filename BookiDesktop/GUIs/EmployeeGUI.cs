@@ -30,20 +30,36 @@ namespace BookiDesktop.GUIs {
             VenuesController vCtrl = new VenuesController();
 
             employeesGUI = EmployeesGUI.Instance;
-            editedEmployee = await eCtrl.Get(employeesGUI.IdFromTable);
 
-            create = false;
-            lblTitle.Text = "Edit Employee";
-            BtnSaveChanges.Text = "Save changes";
-            tbName.Text = editedEmployee.Name;
-            tbPhone.Text = editedEmployee.Phone;
-            tbEmail.Text = editedEmployee.Email;
-            tbPassword.Text = editedEmployee.Password;
-            lblEmployeeNo.Show();
-            tbEmployeeNo.Show();
-            tbEmployeeNo.Enabled = false;
-            tbEmployeeNo.Text = "" + editedEmployee.EmployeeNo;
-            tbEmployeeTitle.Text = editedEmployee.Title;
+            try {
+                editedEmployee = await eCtrl.Get(employeesGUI.IdFromTable);
+
+                create = false;
+                lblTitle.Text = "Edit Employee";
+                BtnSaveChanges.Text = "Save changes";
+                tbName.Text = editedEmployee.Name;
+                tbPhone.Text = editedEmployee.Phone;
+                tbEmail.Text = editedEmployee.Email;
+                tbPassword.Text = editedEmployee.Password;
+                lblEmployeeNo.Show();
+                tbEmployeeNo.Show();
+                tbEmployeeNo.Enabled = false;
+                tbEmployeeNo.Text = "" + editedEmployee.EmployeeNo;
+                tbEmployeeTitle.Text = editedEmployee.Title;
+                var venuesList = new List<Venue>();
+                foreach (Venue v in editedEmployee.Venues) {
+                    venuesList.Add(v);
+                }
+                // Finding venue from venueID on table and adding it to combobox.
+
+                cbVenueID.DataSource = venuesList;
+            }
+            catch(Exception) {
+                MessageBox.Show("No connection to service");
+                this.Visible = false;   
+            }
+            // Resetting idFromTable to remove possibility to show other employees tables
+            employeesGUI.IdFromTable = -1;
         }
 
         public async Task Create() {
