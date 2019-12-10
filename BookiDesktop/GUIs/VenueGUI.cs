@@ -68,7 +68,7 @@ namespace BookiDesktop.GUIs {
                         Venue newVenue = new Venue { Name = tbName.Text, Address = tbAddress.Text, Zip = Int32.Parse(tbZip.Text), City = tbCity.Text };
                         await vCtrl.Create(newVenue);
                         this.Visible = false;
-
+                        dGUI.AddVenueStats();
                 }
                 else if (!create) {
                     MessageBox.Show("Method not implemented");
@@ -84,8 +84,7 @@ namespace BookiDesktop.GUIs {
             } else {
                     MessageBox.Show("Error...One or more fields are empty!"); ;
                 }
-            dGUI.AddVenueStats();
-
+            
             }
         public bool TextBoxesHasValues() {
             bool res = false;           

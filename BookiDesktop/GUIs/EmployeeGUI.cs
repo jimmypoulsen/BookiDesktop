@@ -68,11 +68,16 @@ namespace BookiDesktop.GUIs {
             lblTitle.Text = "Create Employee";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
-            foreach (Venue v in venues) {
-                venuesList.Add(v);
+            try {
+                List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
+                foreach (Venue v in venues) {
+                    venuesList.Add(v);
+                }
+                cbVenueID.DataSource = venuesList;
             }
-            cbVenueID.DataSource = venuesList;
+            catch(Exception) {
+                MessageBox.Show("No connection to service");
+            }
             create = true;
             tbName.Text = "";
             tbPhone.Text = "";
@@ -101,13 +106,19 @@ namespace BookiDesktop.GUIs {
                     //Venue currVenue = (Venue)cbVenueID.SelectedItem;
                     //Debug.WriteLine("VenueId from tableGUI: " + currVenue.Id);
                     string Password = HashingHelper.GenerateHash(tbPassword.Text);
-                    Employee newEmployee = new Employee { Name = tbName.Text, Phone = tbPhone.Text, Email = tbEmail.Text, Password = Password, EmployeeNo = await eCtrl.GetNewEmployeeNo(), Title = tbEmployeeTitle.Text};
-                    Venue newVenue = (Venue)cbVenueID.SelectedItem;
-                    Debug.WriteLine("newEmployee: " + newEmployee.Id + " " + newEmployee.Name);
-                    Debug.WriteLine("newVenue: " + newVenue.Id + " " + newVenue.Name);
-                    await eCtrl.Create(newEmployee, newVenue);
-                    this.Visible = false;
-
+                    try {
+                        Employee newEmployee = new Employee { Name = tbName.Text, Phone = tbPhone.Text, Email = tbEmail.Text, Password = Password, EmployeeNo = await eCtrl.GetNewEmployeeNo(), Title = tbEmployeeTitle.Text};
+                        Venue newVenue = (Venue)cbVenueID.SelectedItem;
+                        Debug.WriteLine("newEmployee: " + newEmployee.Id + " " + newEmployee.Name);
+                        Debug.WriteLine("newVenue: " + newVenue.Id + " " + newVenue.Name);
+                    
+                        await eCtrl.Create(newEmployee, newVenue);
+                        this.Visible = false;
+                        dGUI.AddEmployeeStats();
+                    }
+                    catch (Exception) {
+                        MessageBox.Show("No connection to service");
+                    }
                 }
                 else if (!create) {
                     MessageBox.Show("Method not implemented");
@@ -121,8 +132,6 @@ namespace BookiDesktop.GUIs {
             else {
                 MessageBox.Show("Error...One or more fields are empty!"); ;
             }
-            //dGUI.AddEmployeeStats();
-
         }
     }
 }

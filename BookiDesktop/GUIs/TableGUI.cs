@@ -44,7 +44,7 @@ namespace BookiDesktop.GUIs {
                 tbSeats.Text = "" + editedTable.NoOfSeats;
                 tbName.Text = editedTable.Name;
 
-                cbVenueID.DataSource = venuesList;
+                cbVenue.DataSource = venuesList;
             }
             catch (Exception) {
                 MessageBox.Show("No connection to service");
@@ -63,11 +63,18 @@ namespace BookiDesktop.GUIs {
             lblTitle.Text = "Create Table";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
+
+            try {
+                List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
                 foreach (Venue v in venues) {
                     venuesList.Add(v);
                 }
-            cbVenueID.DataSource = venuesList;
+                cbVenue.DataSource = venuesList;
+            }
+            catch (Exception) {
+                MessageBox.Show("No connection to service");
+            }
+
             create = true;
             tbSeats.Text = "";
             tbName.Text = "";
@@ -80,25 +87,32 @@ namespace BookiDesktop.GUIs {
 
             if (TextBoxesHasValues()) {
                 if (create) {
-                    Venue currVenue = (Venue)cbVenueID.SelectedItem;
-                    Debug.WriteLine("VenueId from tableGUI: " + currVenue.Id);
-                    Table newTable = new Table { NoOfSeats = Int32.Parse(tbSeats.Text), Name = tbName.Text, VenueId = currVenue.Id };
-                    await tCtrl.Create(newTable);
-                    this.Visible = false;
-
-                } else if (!create) {
+                    try {
+                        Venue currVenue = (Venue)cbVenue.SelectedItem;
+                        Debug.WriteLine("VenueId from tableGUI: " + currVenue.Id);
+                        Table newTable = new Table { NoOfSeats = Int32.Parse(tbSeats.Text), Name = tbName.Text, VenueId = currVenue.Id };
+                        await tCtrl.Create(newTable);
+                        this.Visible = false;
+                        dGUI.AddTableStats();
+                    }
+                    catch (Exception) {
+                        MessageBox.Show("No connection to service");
+                    }
+                }
+                else if (!create) {
                     MessageBox.Show("Method not implemented");
                     this.Visible = false;
                     /*int id = editedTable.Id;
                     Table updatedTable = await tCtrl.Get(editedTable.Id);
                     await tCtrl.Update(updatedTable.Id, updatedTable);
                     this.Visible = false;*/
-                }             
-            }
-            else {
-                MessageBox.Show("Error...One or more fields are empty!"); ;
-            }
-            dGUI.AddTableStats();
+
+                    }
+                }
+                else {
+                    MessageBox.Show("Error...One or more fields are empty!"); ;
+                }
+            
         }
 
         public bool TextBoxesHasValues() {

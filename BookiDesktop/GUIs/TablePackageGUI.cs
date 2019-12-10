@@ -64,11 +64,18 @@ namespace BookiDesktop.GUIs {
             lblTitle.Text = "Create Table Package";
             BtnSaveChanges.Text = "Create";
             var venuesList = new List<Venue>();
-            List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
+
+            try {
+                List<Venue> venues = await eCtrl.GetVenues(sCtrl.EmployeeId);
                 foreach (Venue v in venues) {
                     venuesList.Add(v);
                 }
-            cbVenue.DataSource = venuesList;
+                cbVenue.DataSource = venuesList;
+            }
+            catch (Exception) {
+                MessageBox.Show("No connection to service");
+            }
+
             create = true;
             tbName.Text = "";
             tbPrice.Text = "";
@@ -81,11 +88,16 @@ namespace BookiDesktop.GUIs {
 
             if (TextBoxesHasValues()) {
                 if (create) {
-                    Venue currVenue = (Venue)cbVenue.SelectedItem;
-                    Debug.WriteLine("VenueId from tablePackageGUI: " + currVenue.Id);
-                    TablePackage newTablePackage = new TablePackage { Name = tbName.Text, Price = Int32.Parse(tbPrice.Text), VenueId = currVenue.Id };
-                    await tpCtrl.Create(newTablePackage);
-                    this.Visible = false;
+                    try {
+                        Venue currVenue = (Venue)cbVenue.SelectedItem;
+                        TablePackage newTablePackage = new TablePackage { Name = tbName.Text, Price = Int32.Parse(tbPrice.Text), VenueId = currVenue.Id };
+                        await tpCtrl.Create(newTablePackage);
+                        this.Visible = false;
+                        dGUI.AddTablePackageStats();
+                    }
+                    catch(Exception) {
+                        MessageBox.Show("No connection to service");
+                    }
                 } else if (!create) {
                     MessageBox.Show("Method not implemented");
                     this.Visible = false;
@@ -99,7 +111,6 @@ namespace BookiDesktop.GUIs {
                     MessageBox.Show("Error...One or more fields are empty!"); ;
                 }
             }
-            dGUI.AddTablePackageStats();
         }
 
         public bool TextBoxesHasValues() {

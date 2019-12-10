@@ -79,9 +79,6 @@ namespace BookiDesktop {
             employeesGUI.AddDataToTable();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
-
-        }
 
         public void HideButtons() {
             BtnCreateNew.Hide();
@@ -234,6 +231,7 @@ namespace BookiDesktop {
                 }
                 catch (Exception) {
                     MessageBox.Show("Error...occured");
+                    VenuesGUI.Instance.UseWaitCursor = false;
                 }
             }
             else if (nameOfFormOpen.Equals("TablesGUI") && TablesGUI.Instance.idFromTable != -1) {
@@ -245,6 +243,7 @@ namespace BookiDesktop {
                 }
                 catch (Exception) {
                     MessageBox.Show("Error...occured");
+                    TablesGUI.Instance.UseWaitCursor = false;
                 }
             }
             else if (nameOfFormOpen.Equals("TablePackagesGUI") && TablePackagesGUI.Instance.idFromTable != -1) {
@@ -256,6 +255,7 @@ namespace BookiDesktop {
                 }
                 catch (Exception) {
                     MessageBox.Show("Error...occured");
+                    TablePackagesGUI.Instance.UseWaitCursor = false;
                 }
             }
 
@@ -268,13 +268,13 @@ namespace BookiDesktop {
                 }
                 catch (Exception) {
                     MessageBox.Show("Error...occured");
+                    EmployeesGUI.Instance.UseWaitCursor = false;
                 }
             }
 
             else {
                 MessageBox.Show("Please select a " + newTitle + " from the list");
             }
-
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e) {

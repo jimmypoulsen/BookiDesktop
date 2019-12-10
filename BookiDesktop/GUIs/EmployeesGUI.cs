@@ -20,6 +20,7 @@ namespace BookiDesktop.GUIs {
             InitializeComponent();
             AddDataToTable();
             IdFromTable = -1;
+            employeesGridView.ReadOnly = true;
         }
 
         public static EmployeesGUI Instance {

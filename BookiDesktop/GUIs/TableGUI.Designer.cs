@@ -30,7 +30,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblVenue = new System.Windows.Forms.Label();
             this.BtnSaveChanges = new System.Windows.Forms.Button();
-            this.cbVenueID = new System.Windows.Forms.ComboBox();
+            this.cbVenue = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblName
@@ -94,20 +94,20 @@
             this.BtnSaveChanges.UseVisualStyleBackColor = true;
             this.BtnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
-            // cbVenueID
+            // cbVenue
             // 
-            this.cbVenueID.FormattingEnabled = true;
-            this.cbVenueID.Location = new System.Drawing.Point(109, 213);
-            this.cbVenueID.Name = "cbVenueID";
-            this.cbVenueID.Size = new System.Drawing.Size(271, 24);
-            this.cbVenueID.TabIndex = 24;
+            this.cbVenue.FormattingEnabled = true;
+            this.cbVenue.Location = new System.Drawing.Point(109, 213);
+            this.cbVenue.Name = "cbVenue";
+            this.cbVenue.Size = new System.Drawing.Size(271, 24);
+            this.cbVenue.TabIndex = 24;
             // 
             // TableGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 358);
-            this.Controls.Add(this.cbVenueID);
+            this.Controls.Add(this.cbVenue);
             this.Controls.Add(this.BtnSaveChanges);
             this.Controls.Add(this.lblVenue);
             this.Controls.Add(this.lblName);
@@ -130,6 +130,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblVenue;
         private System.Windows.Forms.Button BtnSaveChanges;
-        private System.Windows.Forms.ComboBox cbVenueID;
+        private System.Windows.Forms.ComboBox cbVenue;
     }
 }
