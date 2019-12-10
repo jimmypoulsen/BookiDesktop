@@ -31,6 +31,7 @@
             this.BtnDashboard = new System.Windows.Forms.Button();
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.HeaderNavBar = new System.Windows.Forms.Panel();
+            this.lblCurrentlyLoggedInValues = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.lblCurrentlyLoggedIn = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnCreateNew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblCurrentlyLoggedInValues = new System.Windows.Forms.Label();
             this.sidePanelNav.SuspendLayout();
             this.HeaderNavBar.SuspendLayout();
             this.HeaderForContent.SuspendLayout();
@@ -134,6 +134,14 @@
             this.HeaderNavBar.Name = "HeaderNavBar";
             this.HeaderNavBar.Size = new System.Drawing.Size(1348, 69);
             this.HeaderNavBar.TabIndex = 5;
+            // 
+            // lblCurrentlyLoggedInValues
+            // 
+            this.lblCurrentlyLoggedInValues.AutoSize = true;
+            this.lblCurrentlyLoggedInValues.Location = new System.Drawing.Point(553, 31);
+            this.lblCurrentlyLoggedInValues.Name = "lblCurrentlyLoggedInValues";
+            this.lblCurrentlyLoggedInValues.Size = new System.Drawing.Size(0, 17);
+            this.lblCurrentlyLoggedInValues.TabIndex = 9;
             // 
             // button6
             // 
@@ -230,18 +238,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panel3.Location = new System.Drawing.Point(2, 628);
+            this.panel3.Location = new System.Drawing.Point(0, 628);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1346, 29);
+            this.panel3.Size = new System.Drawing.Size(1348, 29);
             this.panel3.TabIndex = 8;
-            // 
-            // lblCurrentlyLoggedInValues
-            // 
-            this.lblCurrentlyLoggedInValues.AutoSize = true;
-            this.lblCurrentlyLoggedInValues.Location = new System.Drawing.Point(553, 31);
-            this.lblCurrentlyLoggedInValues.Name = "lblCurrentlyLoggedInValues";
-            this.lblCurrentlyLoggedInValues.Size = new System.Drawing.Size(0, 17);
-            this.lblCurrentlyLoggedInValues.TabIndex = 9;
             // 
             // MainMenuGUI
             // 

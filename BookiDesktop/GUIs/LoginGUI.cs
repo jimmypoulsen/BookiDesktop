@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookiDesktop.Properties;
 
 namespace BookiDesktop.GUIs {
     public partial class LoginGUI : Form {
@@ -16,6 +17,7 @@ namespace BookiDesktop.GUIs {
             InitializeComponent();
             this.AcceptButton = BtnLogin;
         }
+
 
         private async void BtnLogin_ClickAsync(object sender, EventArgs e) {
             //SessionsController sCtrl = new SessionsController();
@@ -39,6 +41,7 @@ namespace BookiDesktop.GUIs {
                 tbEmail.Text = "";
                 tbPassword.Text = "";
             }
+            
         }
     }
 }

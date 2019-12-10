@@ -30,7 +30,9 @@
             this.BtnLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbEmail
@@ -74,7 +76,7 @@
             // 
             this.BtnLogin.Location = new System.Drawing.Point(23, 188);
             this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(271, 29);
+            this.BtnLogin.Size = new System.Drawing.Size(271, 34);
             this.BtnLogin.TabIndex = 4;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
@@ -84,11 +86,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(271, 26);
+            this.label3.Location = new System.Drawing.Point(136, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(275, 28);
+            this.label3.Size = new System.Drawing.Size(283, 28);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Login to Booki Administration";
+            this.label3.Text = "Log-in to Booki Administration";
             // 
             // panel1
             // 
@@ -98,22 +100,34 @@
             this.panel1.Controls.Add(this.lblEmail);
             this.panel1.Controls.Add(this.tbPassword);
             this.panel1.Controls.Add(this.tbEmail);
-            this.panel1.Location = new System.Drawing.Point(244, 112);
+            this.panel1.Location = new System.Drawing.Point(99, 240);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(332, 254);
             this.panel1.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BookiDesktop.Properties.Resources.logoSmall;
+            this.pictureBox1.Location = new System.Drawing.Point(174, 56);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(183, 161);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(539, 561);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Name = "LoginGUI";
             this.Text = "LoginGUI";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +142,6 @@
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

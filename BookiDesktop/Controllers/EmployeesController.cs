@@ -146,13 +146,14 @@ namespace BookiDesktop.Controllers {
             return i;
         }
 
-        public async Task<bool> Create(Employee employee) {
+        public async Task<bool> Create(Employee employee, Venue venue) {
            employeesGUI = EmployeesGUI.Instance;
             bool res = false;
 
             bCtrl = new BaseController();
             var root = new {
-                Employee = employee
+                Employee = employee,
+                Venue = venue
             };
             var json = JsonConvert.SerializeObject(root);
             var data = new StringContent(json, Encoding.UTF8, "application/json");

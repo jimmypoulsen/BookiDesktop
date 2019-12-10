@@ -78,15 +78,18 @@ namespace BookiDesktop.GUIs {
         private async void BtnSaveChanges_Click(object sender, EventArgs e) {
             EmployeesController eCtrl = new EmployeesController();
             DashboardGUI dGUI = DashboardGUI.Instance;
+            VenuesController vCtrl = new VenuesController();
 
             if (TextBoxesHasValues()) {
                 if (create) {
                     //Venue currVenue = (Venue)cbVenueID.SelectedItem;
                     //Debug.WriteLine("VenueId from tableGUI: " + currVenue.Id);
-                    
                     string Password = HashingHelper.GenerateHash(tbPassword.Text);
-                    Employee newEmployee = new Employee { Name = tbName.Text, Phone = tbPhone.Text, Email = tbEmail.Text, Password = Password, EmployeeNo = await eCtrl.GetNewEmployeeNo(), Title = tbEmployeeTitle.Text };
-                    await eCtrl.Create(newEmployee);
+                    Employee newEmployee = new Employee { Name = tbName.Text, Phone = tbPhone.Text, Email = tbEmail.Text, Password = Password, EmployeeNo = await eCtrl.GetNewEmployeeNo(), Title = tbEmployeeTitle.Text};
+                    Venue newVenue = (Venue)cbVenueID.SelectedItem;
+                    Debug.WriteLine("newEmployee: " + newEmployee.Id + " " + newEmployee.Name);
+                    Debug.WriteLine("newVenue: " + newVenue.Id + " " + newVenue.Name);
+                    await eCtrl.Create(newEmployee, newVenue);
                     this.Visible = false;
 
                 }
