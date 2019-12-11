@@ -25,3 +25,30 @@ C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.EmployeesGUI.resources
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.LoginGUI.resources
 C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.EmployeeGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\BookiDesktop.exe.config
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\BookiDesktop.exe
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\BookiDesktop.pdb
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\System.Web.Http.dll
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\bin\Debug\System.Web.Http.xml
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csprojAssemblyReference.cache
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.DashboardGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.EmployeeGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.EmployeesGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.LoginGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.TableGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.TablePackageGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.VenueGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.MainMenuGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Properties.Resources.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.TablePackagesGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.TablesGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.VenuesGUI.resources
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csproj.GenerateResource.cache
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csproj.CopyComplete
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.exe
+C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.pdb

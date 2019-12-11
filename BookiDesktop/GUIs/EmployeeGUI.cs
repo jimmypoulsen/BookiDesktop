@@ -106,8 +106,9 @@ namespace BookiDesktop.GUIs {
                     //Venue currVenue = (Venue)cbVenueID.SelectedItem;
                     //Debug.WriteLine("VenueId from tableGUI: " + currVenue.Id);
                     string Password = HashingHelper.GenerateHash(tbPassword.Text);
+                    string Salt = HashingHelper.RandomString(20);
                     try {
-                        Employee newEmployee = new Employee { Name = tbName.Text, Phone = tbPhone.Text, Email = tbEmail.Text, Password = Password, EmployeeNo = await eCtrl.GetNewEmployeeNo(), Title = tbEmployeeTitle.Text};
+                        Employee newEmployee = new Employee { Name = tbName.Text, Phone = tbPhone.Text, Email = tbEmail.Text, Password = Password, Salt = Salt, EmployeeNo = await eCtrl.GetNewEmployeeNo(), Title = tbEmployeeTitle.Text};
                         Venue newVenue = (Venue)cbVenueID.SelectedItem;
                         Debug.WriteLine("newEmployee: " + newEmployee.Id + " " + newEmployee.Name);
                         Debug.WriteLine("newVenue: " + newVenue.Id + " " + newVenue.Name);

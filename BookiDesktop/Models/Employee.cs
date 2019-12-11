@@ -13,6 +13,7 @@ namespace BookiDesktop.Models {
         public string Password { get; set; }
         public int EmployeeNo { get; set; }
         public string Title { get; set; }
+        public string Salt { get; set; }
         public IEnumerable<Venue> Venues{ get; set; }
 
     }

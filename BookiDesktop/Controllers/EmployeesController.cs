@@ -147,7 +147,7 @@ namespace BookiDesktop.Controllers {
         }
 
         public async Task<bool> Create(Employee employee, Venue venue) {
-           employeesGUI = EmployeesGUI.Instance;
+            employeesGUI = EmployeesGUI.Instance;
             bool res = false;
 
             bCtrl = new BaseController();
