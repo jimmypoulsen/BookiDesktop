@@ -14,6 +14,7 @@ namespace BookiDesktop.Models {
         public int EmployeeNo { get; set; }
         public string Title { get; set; }
         public string Salt { get; set; }
+        public Venue Venue { get; set; }
         public IEnumerable<Venue> Venues{ get; set; }
 
     }

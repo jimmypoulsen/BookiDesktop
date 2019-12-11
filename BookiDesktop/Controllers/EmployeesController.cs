@@ -124,6 +124,7 @@ namespace BookiDesktop.Controllers {
                 foreach (Venue venue1 in employee.Venues) {
                     foreach (int i in venueIDs) {
                         if (venue1.Id.Equals(i)) {
+                            employee.Venue = venue1;
                             employees.Add(employee);
                         }
                     }

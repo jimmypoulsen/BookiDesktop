@@ -42,6 +42,9 @@ namespace BookiDesktop.GUIs {
             catch (Exception) {
                 MessageBox.Show("No connection to service");
             }
+            employeesGridView.Columns["Password"].Visible = false;
+            employeesGridView.Columns["Salt"].Visible = false;
+            employeesGridView.Columns["Venues"].Visible = false;
             employeesGridView.UseWaitCursor = false;
             employeesGridView.ClearSelection();
             employeesGridView.CurrentCell = null;
