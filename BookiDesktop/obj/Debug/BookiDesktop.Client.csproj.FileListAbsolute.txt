@@ -52,3 +52,4 @@ C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.cspr
 C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.Client.csproj.CopyComplete
 C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.exe
 C:\Users\Jimmy\code\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.pdb
+C:\Users\caspa\Qsync\Caspar\Dokumenter\Skole dokumenter\UCN\3. Semester\Projekt\repo\BookiDesktop\BookiDesktop\obj\Debug\BookiDesktop.GUIs.ReservationsGUI.resources

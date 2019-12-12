@@ -81,7 +81,6 @@ namespace BookiDesktop.Controllers {
                 tablesGUI.AddDataToTable();
                 return res;
             }
-
         }
 
     }

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\SessionsController.cs" />
     <Compile Include="Controllers\TablePackagesController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
@@ -89,6 +90,12 @@
     <Compile Include="GUIs\LoginGUI.Designer.cs">
       <DependentUpon>LoginGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIs\ReservationsGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIs\ReservationsGUI.Designer.cs">
+      <DependentUpon>ReservationsGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIs\TableGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +124,7 @@
     <Compile Include="Helpers\HashingHelper.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\TablePackage.cs" />
     <Compile Include="Models\Venue.cs" />
@@ -150,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\LoginGUI.resx">
       <DependentUpon>LoginGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIs\ReservationsGUI.resx">
+      <DependentUpon>ReservationsGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIs\TableGUI.resx">
       <DependentUpon>TableGUI.cs</DependentUpon>

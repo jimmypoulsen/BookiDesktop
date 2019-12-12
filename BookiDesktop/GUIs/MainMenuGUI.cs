@@ -62,6 +62,14 @@ namespace BookiDesktop {
             venuesGUI.AddDataToTable();
         }
 
+        private void BtnEmployees_Click(object sender, EventArgs e) {
+            EmployeesGUI employeesGUI = EmployeesGUI.Instance;
+            Nav(employeesGUI, content);
+            RecolorButtons();
+            BtnEmployees.BackColor = Color.DarkGray;
+            employeesGUI.AddDataToTable();
+        }
+
         private void BtnTables_Click(object sender, EventArgs e) {
             TablesGUI tablesGUI = TablesGUI.Instance;
             Nav(tablesGUI, content);
@@ -78,12 +86,12 @@ namespace BookiDesktop {
             tablePackagesGUI.AddDataToTable();
         }
 
-        private void BtnEmployees_Click(object sender, EventArgs e) {
-            EmployeesGUI employeesGUI = EmployeesGUI.Instance;
-            Nav(employeesGUI, content);
+        private void BtnReservations_Click(object sender, EventArgs e) {
+            ReservationsGUI reservationsGUI = ReservationsGUI.Instance;
+            Nav(reservationsGUI, content);
             RecolorButtons();
-            BtnEmployees.BackColor = Color.DarkGray;
-            employeesGUI.AddDataToTable();
+            BtnReservations.BackColor = Color.DarkGray;
+            reservationsGUI.AddDataToTable();
         }
 
 
@@ -102,13 +110,15 @@ namespace BookiDesktop {
         public void ChangeButtons(String title) {
 
             newTitle = null;
-
-            if (title.Contains("s")) {
-                string oldChar = "s";
-                string newChar = "";
-                newTitle = title.Replace(oldChar, newChar);
+            // Checking if title is plural and ends with "s"
+            string suffix = "s";
+            if (title.EndsWith(suffix)) {
+                //Removes the "s" at the end and creates a new title
+                newTitle = title.Remove(title.Length - suffix.Length);
             }
-
+            else {
+                newTitle = title;
+            }
             BtnCreateNew.Text = "Create new " + newTitle;
             BtnEdit.Text = "Edit " + newTitle;
             BtnDelete.Text = "Delete " + newTitle;
@@ -120,6 +130,7 @@ namespace BookiDesktop {
             BtnTables.BackColor = Color.White;
             BtnTablePackages.BackColor = Color.White;
             BtnEmployees.BackColor = Color.White;
+            BtnReservations.BackColor = Color.White;
         }
 
         public void Nav(Form form, Panel panel) {
@@ -146,6 +157,11 @@ namespace BookiDesktop {
 
                 //if (nameOfFormOpen.Equals("DashboardGUI")) {
                 HideButtons();
+            }
+            else if (nameOfFormOpen.Equals("ReservationsGUI")) {
+                BtnCreateNew.Hide();
+                BtnEdit.Hide();
+                BtnDelete.Show();
             }
             else {
                 ShowButtons();
@@ -272,6 +288,19 @@ namespace BookiDesktop {
                     EmployeesGUI.Instance.UseWaitCursor = true;
                     await eCtrl.Delete(EmployeesGUI.Instance.IdFromTable);
                     EmployeesGUI.Instance.UseWaitCursor = false;
+                }
+                catch (Exception) {
+                    MessageBox.Show("Error...occured");
+                    EmployeesGUI.Instance.UseWaitCursor = false;
+                }
+            }
+
+            else if (nameOfFormOpen.Equals("ReservationsGUI") && ReservationsGUI.Instance.IdFromTable != -1) {
+                try {
+                    ReservationsController rCtrl = new ReservationsController();
+                    ReservationsGUI.Instance.UseWaitCursor = true;
+                    await rCtrl.Delete(ReservationsGUI.Instance.IdFromTable);
+                    ReservationsGUI.Instance.UseWaitCursor = false;
                 }
                 catch (Exception) {
                     MessageBox.Show("Error...occured");

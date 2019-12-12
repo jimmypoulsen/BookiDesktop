@@ -73,6 +73,31 @@ namespace BookiDesktop.Controllers {
             return venues;
         }
 
+        public async Task<List<Employee>> GetEmployees(int id) {
+            List<Employee> currEmployees = await Get();
+            List<Venue> venueInfo = await GetVenues(id);
+            List<Employee> employees = new List<Employee>();
+
+            List<int> venueIDs = new List<int>();
+            foreach (Venue venue in venueInfo) {
+                venueIDs.Add(venue.Id);
+            }
+
+
+            foreach (Employee employee in currEmployees) {
+                foreach (Venue venue1 in employee.Venues) {
+                    foreach (int i in venueIDs) {
+                        if (venue1.Id.Equals(i)) {
+                            employee.Venue = venue1;
+                            employees.Add(employee);
+                        }
+                    }
+
+                }
+            }
+            return employees;
+        }
+
         public async Task<List<Table>> GetTables(int id) {
             TablesController tCtrl = new TablesController();
             List<Table> currTables = await tCtrl.Get();
@@ -109,29 +134,31 @@ namespace BookiDesktop.Controllers {
             return tablePackages;
         }
 
-        public async Task<List<Employee>> GetEmployees(int id) {
-            List<Employee> currEmployees = await Get();
+        public async Task<List<Reservation>> GetReservations(int id) {
+            ReservationsController rCtrl = new ReservationsController();
+            List<Reservation> currReservations = await rCtrl.Get();
+            List<Reservation> reservations = new List<Reservation>();
+            List<Table> currTables = await GetTables(id);
+
+            // Get all venues on employee by employee id
             List<Venue> venueInfo = await GetVenues(id);
-            List<Employee> employees = new List<Employee>();
 
             List<int> venueIDs = new List<int>();
             foreach (Venue venue in venueInfo) {
                 venueIDs.Add(venue.Id);
-            }
-
-
-            foreach (Employee employee in currEmployees) {
-                foreach (Venue venue1 in employee.Venues) {
-                    foreach (int i in venueIDs) {
-                        if (venue1.Id.Equals(i)) {
-                            employee.Venue = venue1;
-                            employees.Add(employee);
-                        }
+                foreach (Reservation reservation in currReservations) {
+                    if (reservation.VenueId.Equals(venue.Id)) {
+                        reservations.Add(reservation);
+                        /*foreach (Table table in reservation.Table) {
+                            Debug.WriteLine("Tables: " + table.Name);
+                            //Debug.WriteLine("Array of tables: " + reservation.Table.ToArray());
+                        }*/
                     }
-                   
                 }
+                
             }
-            return employees;
+            
+            return reservations;
         }
 
         public async Task<int> GetNewEmployeeNo() {

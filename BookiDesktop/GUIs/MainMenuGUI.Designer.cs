@@ -42,6 +42,7 @@
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnCreateNew = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnReservations = new System.Windows.Forms.Button();
             this.sidePanelNav.SuspendLayout();
             this.HeaderNavBar.SuspendLayout();
             this.HeaderForContent.SuspendLayout();
@@ -51,6 +52,7 @@
             // 
             this.sidePanelNav.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.sidePanelNav.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sidePanelNav.Controls.Add(this.BtnReservations);
             this.sidePanelNav.Controls.Add(this.BtnEmployees);
             this.sidePanelNav.Controls.Add(this.BtnTablePackages);
             this.sidePanelNav.Controls.Add(this.BtnTables);
@@ -243,6 +245,16 @@
             this.panel3.Size = new System.Drawing.Size(1352, 36);
             this.panel3.TabIndex = 8;
             // 
+            // BtnReservations
+            // 
+            this.BtnReservations.Location = new System.Drawing.Point(3, 381);
+            this.BtnReservations.Name = "BtnReservations";
+            this.BtnReservations.Size = new System.Drawing.Size(133, 69);
+            this.BtnReservations.TabIndex = 5;
+            this.BtnReservations.Text = "Reservations";
+            this.BtnReservations.UseVisualStyleBackColor = true;
+            this.BtnReservations.Click += new System.EventHandler(this.BtnReservations_Click);
+            // 
             // MainMenuGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -285,6 +297,7 @@
         private System.Windows.Forms.Button BtnEmployees;
         public System.Windows.Forms.Label lblCurrentlyLoggedIn;
         private System.Windows.Forms.Label lblCurrentlyLoggedInValues;
+        private System.Windows.Forms.Button BtnReservations;
     }
 }
 
