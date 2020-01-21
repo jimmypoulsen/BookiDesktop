@@ -149,10 +149,10 @@ namespace BookiDesktop.Controllers {
                 foreach (Reservation reservation in currReservations) {
                     if (reservation.VenueId.Equals(venue.Id)) {
                         reservations.Add(reservation);
-                        /*foreach (Table table in reservation.Table) {
+                        foreach (Table table in reservation.Table) {
                             Debug.WriteLine("Tables: " + table.Name);
                             //Debug.WriteLine("Array of tables: " + reservation.Table.ToArray());
-                        }*/
+                        }
                     }
                 }
                 
